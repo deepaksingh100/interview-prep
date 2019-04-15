@@ -1,4 +1,4 @@
-package me.deepak.interview.design.patterns.creational.abstract_factory;
+package me.deepak.interview.design_patterns.creational.abstract_factory;
 
 public class Duck implements Animal {
 
