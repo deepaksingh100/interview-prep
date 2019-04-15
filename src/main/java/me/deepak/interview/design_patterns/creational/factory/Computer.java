@@ -1,4 +1,4 @@
-package me.deepak.interview.design.patterns.creational.factory;
+package me.deepak.interview.design_patterns.creational.factory;
 
 public interface Computer {
 

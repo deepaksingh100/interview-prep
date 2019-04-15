@@ -1,4 +1,4 @@
-package me.deepak.interview.design.patterns.creational.singleton;
+package me.deepak.interview.design_patterns.creational.singleton;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
