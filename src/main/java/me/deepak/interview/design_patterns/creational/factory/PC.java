@@ -1,4 +1,4 @@
-package me.deepak.interview.design.patterns.creational.abstract_factory;
+package me.deepak.interview.design.patterns.creational.factory;
 
 public class PC implements Computer {
 

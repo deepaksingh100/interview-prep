@@ -1,4 +1,4 @@
-package me.deepak.interview.design.patterns.creational.builder;
+package me.deepak.interview.design_patterns.creational.builder;
 
 public final class Student {
 	private final int rollNo;
