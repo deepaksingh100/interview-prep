@@ -2,9 +2,12 @@ package me.deepak.interview.linked_list;
 
 import me.deepak.interview.linked_list.beans.Node;
 
-public class LinkedList {
+public final class LinkedList {
 
-	public void printList(Node head) {
+	private LinkedList() {
+	}
+
+	public static void printList(Node head) {
 		if (head == null) {
 			System.out.println("No elements found in the list");
 		} else {
@@ -17,7 +20,7 @@ public class LinkedList {
 		}
 	}
 
-	public int length(Node head) {
+	public static int length(Node head) {
 		int length = 0;
 		Node current = head;
 		while (current != null) {
@@ -27,7 +30,7 @@ public class LinkedList {
 		return length;
 	}
 
-	public void insert(Node head, Node newNode, int position) {
+	public static void insert(Node head, Node newNode, int position) {
 		if (position == 0) {
 			newNode.setNext(head);
 			head = newNode;
@@ -47,7 +50,7 @@ public class LinkedList {
 		printList(head);
 	}
 
-	public void reverse(Node head) {
+	public static void reverse(Node head) {
 		if (head == null) {
 			return;
 		}
@@ -63,7 +66,7 @@ public class LinkedList {
 		printList(prev);
 	}
 
-	public Node mergeLists(Node headA, Node headB) {
+	public static Node mergeLists(Node headA, Node headB) {
 		if (headA == null)
 			return headB;
 		else if (headB == null)
@@ -99,7 +102,7 @@ public class LinkedList {
 		return finalHead;
 	}
 
-	public Node zigzag(Node head) {
+	public static Node zigzag(Node head) {
 		if (head == null || head.getNext() == null)
 			return head;
 		Node current = head;

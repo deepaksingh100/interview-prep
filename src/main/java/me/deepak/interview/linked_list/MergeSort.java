@@ -2,9 +2,12 @@ package me.deepak.interview.linked_list;
 
 import me.deepak.interview.linked_list.beans.Node;
 
-public class MergeSort {
+public final class MergeSort {
 
-	public Node sort(Node head) {
+	private MergeSort() {
+	}
+	
+	public static Node sort(Node head) {
 		if (head == null || head.getNext() == null) {
 			return head;
 		}
@@ -16,7 +19,7 @@ public class MergeSort {
 		return merge(left, right);
 	}
 
-	public Node getMid(Node head) {
+	public static  Node getMid(Node head) {
 		if (head == null || head.getNext() == null) {
 			return head;
 		}
@@ -29,7 +32,7 @@ public class MergeSort {
 		return slowPointer;
 	}
 
-	public Node merge(Node left, Node right) {
+	public static Node merge(Node left, Node right) {
 		if (left == null) {
 			return right;
 		} else if (right == null) {
