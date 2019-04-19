@@ -1,4 +1,4 @@
-package me.deepak.interview.tree.binary.heap.max;
+package me.deepak.interview.tree.binary.heap;
 
 import java.util.List;
 

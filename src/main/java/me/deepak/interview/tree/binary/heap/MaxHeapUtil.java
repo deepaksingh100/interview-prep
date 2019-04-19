@@ -1,4 +1,4 @@
-package me.deepak.interview.tree.binary.heap.max;
+package me.deepak.interview.tree.binary.heap;
 
 import static me.deepak.interview.sort.utils.SwapUtil.swap;
 

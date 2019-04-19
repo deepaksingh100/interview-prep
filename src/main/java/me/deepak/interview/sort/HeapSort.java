@@ -1,12 +1,12 @@
 package me.deepak.interview.sort;
 
 import static me.deepak.interview.sort.utils.SwapUtil.swap;
-import static me.deepak.interview.tree.binary.heap.max.MaxHeapUtil.buildMaxHeap;
-import static me.deepak.interview.tree.binary.heap.max.MaxHeapUtil.maxHeapify;
+import static me.deepak.interview.tree.binary.heap.MaxHeapUtil.buildMaxHeap;
+import static me.deepak.interview.tree.binary.heap.MaxHeapUtil.maxHeapify;
 
 import java.util.List;
 
-import me.deepak.interview.tree.binary.heap.max.MaxHeap;
+import me.deepak.interview.tree.binary.heap.MaxHeap;
 
 public final class HeapSort {
 
