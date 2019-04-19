@@ -1,14 +1,17 @@
 package me.deepak.interview.randomized_select;
 
-import me.deepak.interview.randomized_select.partition.RandomizedPartition;
+import static me.deepak.interview.sort.utils.RandomizedPartitionUtil.randomizedPartition;
 
-public class RandomizedSelect {
+public final class RandomizedSelect {
 
-	public int getkthSmallest(int[] a, int start, int end, int k) {
+	private RandomizedSelect() {
+	}
+
+	public static int getkthSmallest(int[] a, int start, int end, int k) {
 		if (start == end) {
 			return a[start];
 		}
-		int pivotIndex = new RandomizedPartition().randomizedPartition(a, start, end);
+		int pivotIndex = randomizedPartition(a, start, end);
 		int leftHalfLength = pivotIndex - start + 1;
 		if (k == leftHalfLength) {
 			return a[pivotIndex];

@@ -1,6 +1,6 @@
 package me.deepak.interview.sort;
 
-public class MergeSort {
+public final class MergeSort {
 
 	private MergeSort() {
 	}

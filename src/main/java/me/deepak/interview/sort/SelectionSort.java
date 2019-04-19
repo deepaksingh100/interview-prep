@@ -2,9 +2,12 @@ package me.deepak.interview.sort;
 
 import static me.deepak.interview.sort.utils.SwapUtil.swap;
 
-public class SelectionSort {
+public final class SelectionSort {
 
-	public void sort(int[] a) {
+	private SelectionSort() {
+	}
+
+	public static void sort(int[] a) {
 		for (int i = 0; i < a.length - 1; i++) {
 			int minIndex = i;
 			for (int j = i + 1; j < a.length; j++) {

@@ -1,8 +1,11 @@
 package me.deepak.interview.sort;
 
-public class CountingSort {
+public final class CountingSort {
 
-	public int[] sort(int[] a, int maxElement) {
+	private CountingSort() {
+	}
+
+	public static int[] sort(int[] a, int maxElement) {
 		int[] count = new int[maxElement + 1];
 		for (int i = 0; i < a.length; i++) {
 			count[a[i]]++;

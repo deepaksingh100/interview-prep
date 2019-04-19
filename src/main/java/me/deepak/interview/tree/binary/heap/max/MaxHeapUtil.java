@@ -1,22 +1,27 @@
 package me.deepak.interview.tree.binary.heap.max;
 
+import static me.deepak.interview.sort.utils.SwapUtil.swap;
+
 import java.util.List;
 
-public class MaxHeapHelper {
+public final class MaxHeapUtil {
 
-	public int parent(int child) {
+	private MaxHeapUtil() {
+	}
+
+	public static int parent(int child) {
 		return (child - 1) / 2;
 	}
 
-	public int left(int parent) {
+	public static int left(int parent) {
 		return 2 * parent + 1;
 	}
 
-	public int right(int parent) {
+	public static int right(int parent) {
 		return 2 * parent + 2;
 	}
 
-	public MaxHeap buildMaxHeap(List<Integer> list) {
+	public static MaxHeap buildMaxHeap(List<Integer> list) {
 		MaxHeap maxHeap = new MaxHeap();
 		maxHeap.setHeap(list);
 		maxHeap.setSize(list.size());
@@ -26,7 +31,7 @@ public class MaxHeapHelper {
 		return maxHeap;
 	}
 
-	public void maxHeapify(MaxHeap maxHeap, int root) {
+	public static void maxHeapify(MaxHeap maxHeap, int root) {
 		int left = left(root);
 		int right = right(root);
 		int largest = root;
@@ -44,11 +49,11 @@ public class MaxHeapHelper {
 		}
 	}
 
-	public int heapMaximum(MaxHeap maxHeap) {
+	public static int heapMaximum(MaxHeap maxHeap) {
 		return maxHeap.getHeap().get(0);
 	}
 
-	public int heapExtractMax(MaxHeap maxHeap) {
+	public static int heapExtractMax(MaxHeap maxHeap) {
 		int heapSize = maxHeap.getSize();
 		if (heapSize < 1) {
 			throw new IllegalArgumentException("Heapsize is zero");
@@ -61,7 +66,7 @@ public class MaxHeapHelper {
 		return max;
 	}
 
-	public void heapIncreaseKey(MaxHeap maxHeap, int index, int key) {
+	public static void heapIncreaseKey(MaxHeap maxHeap, int index, int key) {
 		List<Integer> heap = maxHeap.getHeap();
 		if (key < heap.get(index)) {
 			throw new IllegalArgumentException("New key is smaller than current key");
@@ -73,18 +78,12 @@ public class MaxHeapHelper {
 		}
 	}
 
-	public void maxHeapInsert(MaxHeap maxHeap, int key) {
+	public static void maxHeapInsert(MaxHeap maxHeap, int key) {
 		int heapSize = maxHeap.getSize();
 		heapSize++;
 		maxHeap.setSize(heapSize);
 		maxHeap.getHeap().set(heapSize - 1, Integer.MIN_VALUE);
 		heapIncreaseKey(maxHeap, heapSize - 1, key);
-	}
-
-	private static void swap(List<Integer> heap, int i, int j) {
-		int temp = heap.get(i);
-		heap.set(i, j);
-		heap.set(j, temp);
 	}
 
 }

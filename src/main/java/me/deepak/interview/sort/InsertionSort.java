@@ -1,8 +1,11 @@
 package me.deepak.interview.sort;
 
-public class InsertionSort {
+public final class InsertionSort {
 
-	public void sort(int[] a) {
+	private InsertionSort() {
+	}
+	
+	public static void sort(int[] a) {
 		for (int i = 1; i < a.length; i++) {
 			int hole = i;
 			int value = a[hole];

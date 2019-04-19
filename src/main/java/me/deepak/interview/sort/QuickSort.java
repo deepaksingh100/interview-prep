@@ -1,12 +1,15 @@
 package me.deepak.interview.sort;
 
-import me.deepak.interview.randomized_select.partition.RandomizedPartition;
+import static me.deepak.interview.sort.utils.RandomizedPartitionUtil.randomizedPartition;
 
-public class QuickSort {
+public final class QuickSort {
 
-	public void sort(int[] a, int start, int end) {
+	private QuickSort() {
+	}
+
+	public static void sort(int[] a, int start, int end) {
 		if (start < end) {
-			int pivotIndex = new RandomizedPartition().randomizedPartition(a, start, end);
+			int pivotIndex = randomizedPartition(a, start, end);
 			sort(a, start, pivotIndex - 1);
 			sort(a, pivotIndex + 1, end);
 		}
