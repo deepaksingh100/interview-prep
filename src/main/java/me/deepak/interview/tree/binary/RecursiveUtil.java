@@ -8,9 +8,6 @@ import me.deepak.interview.tree.binary.beans.Node;
 
 public class RecursiveUtil {
 
-	private RecursiveUtil() {
-	}
-
 	// Traversal
 
 	public static void preOrder(Node root) {
@@ -176,6 +173,18 @@ public class RecursiveUtil {
 		return Math.max(leftHeight.h + rightHeight.h + 1, Math.max(leftDiameter, rightDiameter));
 	}
 
+	public boolean isBalanced(Node root, Height height) {
+		if (root == null) {
+			return true;
+		}
+		Height leftHeight = new Height();
+		Height rightHeight = new Height();
+		boolean isLeftBalanced = isBalanced(root.getLeft(), leftHeight);
+		boolean isRightBalanced = isBalanced(root.getRight(), rightHeight);
+		height.h = Math.max(leftHeight.h, rightHeight.h) + 1;
+		return Math.abs(leftHeight.h - rightHeight.h) <= 1 && isLeftBalanced && isRightBalanced;
+	}
+
 	public static int distance(Node root, int key1, int key2) {
 		Node lca = lowestCommonAncestor(root, key1, key2);
 		return distanceFromRoot(lca, key1, 0) + distanceFromRoot(lca, key2, 0);
@@ -257,18 +266,6 @@ public class RecursiveUtil {
 			}
 		}
 		return level;
-	}
-
-	public boolean isBalanced(Node root, Height height) {
-		if (root == null) {
-			return true;
-		}
-		Height leftHeight = new Height();
-		Height rightHeight = new Height();
-		boolean isLeftBalanced = isBalanced(root.getLeft(), leftHeight);
-		boolean isRightBalanced = isBalanced(root.getRight(), rightHeight);
-		height.h = Math.max(leftHeight.h, rightHeight.h) + 1;
-		return Math.abs(leftHeight.h - rightHeight.h) <= 1 && isLeftBalanced && isRightBalanced;
 	}
 
 }

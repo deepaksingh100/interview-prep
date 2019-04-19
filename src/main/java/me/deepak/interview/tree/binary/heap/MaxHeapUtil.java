@@ -4,6 +4,8 @@ import static me.deepak.interview.sort.utils.SwapUtil.swap;
 
 import java.util.List;
 
+import me.deepak.interview.tree.binary.beans.Heap;
+
 public final class MaxHeapUtil {
 
 	private MaxHeapUtil() {
@@ -21,8 +23,8 @@ public final class MaxHeapUtil {
 		return 2 * parent + 2;
 	}
 
-	public static MaxHeap buildMaxHeap(List<Integer> list) {
-		MaxHeap maxHeap = new MaxHeap();
+	public static Heap buildMaxHeap(List<Integer> list) {
+		Heap maxHeap = new Heap();
 		maxHeap.setHeap(list);
 		maxHeap.setSize(list.size());
 		for (int i = maxHeap.getSize() / 2; i >= 0; i--) {
@@ -31,7 +33,7 @@ public final class MaxHeapUtil {
 		return maxHeap;
 	}
 
-	public static void maxHeapify(MaxHeap maxHeap, int root) {
+	public static void maxHeapify(Heap maxHeap, int root) {
 		int left = left(root);
 		int right = right(root);
 		int largest = root;
@@ -49,11 +51,11 @@ public final class MaxHeapUtil {
 		}
 	}
 
-	public static int heapMaximum(MaxHeap maxHeap) {
+	public static int heapMaximum(Heap maxHeap) {
 		return maxHeap.getHeap().get(0);
 	}
 
-	public static int heapExtractMax(MaxHeap maxHeap) {
+	public static int heapExtractMax(Heap maxHeap) {
 		int heapSize = maxHeap.getSize();
 		if (heapSize < 1) {
 			throw new IllegalArgumentException("Heapsize is zero");
@@ -66,7 +68,7 @@ public final class MaxHeapUtil {
 		return max;
 	}
 
-	public static void heapIncreaseKey(MaxHeap maxHeap, int index, int key) {
+	public static void heapIncreaseKey(Heap maxHeap, int index, int key) {
 		List<Integer> heap = maxHeap.getHeap();
 		if (key < heap.get(index)) {
 			throw new IllegalArgumentException("New key is smaller than current key");
@@ -78,7 +80,7 @@ public final class MaxHeapUtil {
 		}
 	}
 
-	public static void maxHeapInsert(MaxHeap maxHeap, int key) {
+	public static void maxHeapInsert(Heap maxHeap, int key) {
 		int heapSize = maxHeap.getSize();
 		heapSize++;
 		maxHeap.setSize(heapSize);

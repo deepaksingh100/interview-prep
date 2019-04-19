@@ -6,7 +6,7 @@ import static me.deepak.interview.tree.binary.heap.MaxHeapUtil.maxHeapify;
 
 import java.util.List;
 
-import me.deepak.interview.tree.binary.heap.MaxHeap;
+import me.deepak.interview.tree.binary.beans.Heap;
 
 public final class HeapSort {
 
@@ -14,7 +14,7 @@ public final class HeapSort {
 	}
 
 	public static void sort(List<Integer> a) {
-		MaxHeap maxHeap = buildMaxHeap(a);
+		Heap maxHeap = buildMaxHeap(a);
 		int heapSize = maxHeap.getSize();
 		for (int i = heapSize - 1; i >= 1; i--) {
 			swap(maxHeap.getHeap(), 0, i);

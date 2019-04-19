@@ -1,8 +1,8 @@
-package me.deepak.interview.tree.binary.heap;
+package me.deepak.interview.tree.binary.beans;
 
 import java.util.List;
 
-public class MaxHeap {
+public class Heap {
 
 	private List<Integer> heap;
 	private int size;
