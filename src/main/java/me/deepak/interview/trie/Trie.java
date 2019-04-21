@@ -4,17 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Date 04/25/2016
+ *
+ * References :
+ *
+ * https://youtu.be/AXjmTQ8LEoI 
+ * https://en.wikipedia.org/wiki/Trie
  * 
- * @author Tushar Roy
- *
- *		   References : 
- *		   https://youtu.be/AXjmTQ8LEoI
- *
- *         Insert/delete/search into trie data structure
- *
- *         Reference https://en.wikipedia.org/wiki/Trie
  */
+
 public class Trie {
 
 	private class TrieNode {

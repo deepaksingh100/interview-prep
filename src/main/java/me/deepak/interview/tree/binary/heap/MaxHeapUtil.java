@@ -11,18 +11,6 @@ public final class MaxHeapUtil {
 	private MaxHeapUtil() {
 	}
 
-	public static int parent(int child) {
-		return (child - 1) / 2;
-	}
-
-	public static int left(int parent) {
-		return 2 * parent + 1;
-	}
-
-	public static int right(int parent) {
-		return 2 * parent + 2;
-	}
-
 	public static Heap buildMaxHeap(List<Integer> list) {
 		Heap maxHeap = new Heap();
 		maxHeap.setHeap(list);
@@ -86,6 +74,18 @@ public final class MaxHeapUtil {
 		maxHeap.setSize(heapSize);
 		maxHeap.getHeap().set(heapSize - 1, Integer.MIN_VALUE);
 		heapIncreaseKey(maxHeap, heapSize - 1, key);
+	}
+
+	private static int parent(int child) {
+		return (child - 1) / 2;
+	}
+
+	private static int left(int parent) {
+		return 2 * parent + 1;
+	}
+
+	private static int right(int parent) {
+		return 2 * parent + 2;
 	}
 
 }
