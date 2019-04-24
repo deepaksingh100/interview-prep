@@ -13,11 +13,11 @@ public class Main {
 		ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
 		SerializableSingleton object = SerializableSingleton.getInstance();
 		objectOutputStream.writeObject(object);
-		System.out.println(object);
+		System.out.println("Serialized Object : " + object);
 
 		ByteArrayInputStream inputStream = new ByteArrayInputStream(outputStream.toByteArray());
 		ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
 		object = (SerializableSingleton) objectInputStream.readObject();
-		System.out.println(object);
+		System.out.println("Deserialized Object : " + object);
 	}
 }
