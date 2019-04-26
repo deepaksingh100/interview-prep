@@ -6,20 +6,27 @@ public class Knapsack {
 	}
 
 	public static double knapsack01(int[] values, int[] weights, int capacity) {
-		int[][] table = new int[values.length + 1][capacity + 1];
-		for (int row = 0; row <= values.length; row++) {
-			for (int column = 0; column <= capacity; column++) {
-				if (row == 0 || column == 0) {
-					table[row][column] = 0;
-				} else if (column < weights[row - 1]) {
-					table[row][column] = table[row - 1][column];
+		int length = values.length;
+		int[][] table = new int[length + 1][capacity + 1];
+		for (int i = 0; i <= length; i++) {
+			for (int j = 0; j <= capacity; j++) {
+				if (i == 0 || j == 0) {
+					// If values[] is empty OR capacity is zero
+					table[i][j] = 0;
+				} else if (j < weights[i - 1]) {
+					/*
+					 * If capacity j is less than current weight weights[i - 1], We can't include
+					 * this weight in our optimal solution
+					 * 
+					 */
+					table[i][j] = table[i - 1][j];
 				} else {
-					table[row][column] = Math.max(table[row - 1][column],
-							values[row - 1] + table[row - 1][column - weights[row - 1]]);
+					
+					table[i][j] = Math.max(table[i - 1][j], values[i - 1] + table[i - 1][j - weights[i - 1]]);
 				}
 			}
 		}
-		return table[values.length][capacity];
+		return table[length][capacity];
 	}
 
 }
