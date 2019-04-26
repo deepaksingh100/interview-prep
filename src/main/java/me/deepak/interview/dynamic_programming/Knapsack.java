@@ -1,5 +1,9 @@
 package me.deepak.interview.dynamic_programming;
 
+/*
+ * https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/
+*/
+
 public class Knapsack {
 
 	private Knapsack() {
@@ -11,7 +15,7 @@ public class Knapsack {
 		for (int i = 0; i <= length; i++) {
 			for (int j = 0; j <= capacity; j++) {
 				if (i == 0 || j == 0) {
-					// If values[] is empty OR capacity is zero
+					// If values[] is empty OR capacity is zero, answer is zero
 					table[i][j] = 0;
 				} else if (j < weights[i - 1]) {
 					/*
@@ -21,8 +25,11 @@ public class Knapsack {
 					 */
 					table[i][j] = table[i - 1][j];
 				} else {
-					
-					table[i][j] = Math.max(table[i - 1][j], values[i - 1] + table[i - 1][j - weights[i - 1]]);
+					/*
+					 * Return the maximum of two cases: (1) (i - 1)th item included (2) not included
+					 * 
+					 */
+					table[i][j] = Math.max(values[i - 1] + table[i - 1][j - weights[i - 1]], table[i - 1][j]);
 				}
 			}
 		}
