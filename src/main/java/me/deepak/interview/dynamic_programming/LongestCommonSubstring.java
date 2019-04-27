@@ -1,5 +1,7 @@
 package me.deepak.interview.dynamic_programming;
 
+import java.util.Arrays;
+
 /*
  * https://www.geeksforgeeks.org/longest-common-substring-dp-29/
  * https://www.geeksforgeeks.org/print-longest-common-substring/
@@ -136,7 +138,7 @@ public class LongestCommonSubstring {
 					table[currentRow][j] = 1 + table[1 - currentRow][j - 1];
 					if (table[currentRow][j] > result) {
 						result = table[currentRow][j];
-						end = i - 1;
+						end = i;
 					}
 				} else {
 					// This code block is very important (must) if we are reusing rows (In Space
@@ -145,12 +147,7 @@ public class LongestCommonSubstring {
 				}
 			}
 		}
-		char[] lcs = new char[result];
-		int count = 0;
-		for (int i = end - result + 1; i <= end; i++) {
-			lcs[count++] = sequence1[i];
-		}
-		return lcs;
+		return Arrays.copyOfRange(sequence1, end - result, end);
 
 	}
 
@@ -159,6 +156,6 @@ public class LongestCommonSubstring {
 				.toCharArray();
 		char[] sequence2 = "QHNWNKUEWHSQMGBBUQCLJJIVSWMDKQTBXIXMVTRRBLJPTNSNFWZQFJMAFADRRWSOFSBCNUVQHFFBSAQXWPQCAC"
 				.toCharArray();
-		System.out.println(lcs(sequence1, sequence2));
+		System.out.println(lcsSpaceOptimized(sequence1, sequence2));
 	}
 }
