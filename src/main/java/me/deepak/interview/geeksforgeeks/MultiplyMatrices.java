@@ -1,19 +1,21 @@
 package me.deepak.interview.geeksforgeeks;
 
-/*https://practice.geeksforgeeks.org/problems/multiply-matrices/1
- *
+/*
+ * https://www.geeksforgeeks.org/c-program-multiply-two-matrices/
 */
 
 public class MultiplyMatrices {
 
-	public void multiply(int first[][], int second[][], int result[][], int n) {
-		int firstRows = first.length;
-		int firstCols = first[0].length;
-		int secondCols = second[0].length;
-		for (int i = 0; i < firstRows; i++) {
-			for (int j = 0; j < secondCols; j++) {
-				for (int k = 0; k < firstCols; k++) {
-					result[i][j] += first[i][k] * second[k][j];
+	public void multiply(int[][] first, int[][] second, int[][] result) {
+		int row1Count = first.length;
+		int column1Count = first[0].length;
+		int column2Count = second[0].length;
+		for (int i = 0; i < row1Count; i++) {
+			for (int j = 0; j < column2Count; j++) {
+				for (int k = 0; k < column1Count; k++) {
+					result[i][j] += first[i][k] // traversing first matrix row wise
+							* second[k][j]// traversing second matrix column wise
+					;
 				}
 			}
 		}
