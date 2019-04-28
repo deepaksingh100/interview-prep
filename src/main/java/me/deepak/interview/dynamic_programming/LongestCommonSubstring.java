@@ -46,7 +46,7 @@ public class LongestCommonSubstring {
 		int currentRow = 0;
 		for (int i = 0; i <= length1; i++) {
 
-			// set current row to 0 if i is EVEN and 1 i is ODD
+			// set current row to 0 if i is EVEN and 1 if i is ODD
 			currentRow = i & 1; // odd even style
 			for (int j = 0; j <= length2; j++) {
 				if (i == 0 || j == 0) {
@@ -123,7 +123,7 @@ public class LongestCommonSubstring {
 		int currentRow = 0;
 		for (int i = 0; i <= length1; i++) {
 
-			// set current row to 0 if i is EVEN and 1 i is ODD
+			// set current row to 0 if i is EVEN and 1 if i is ODD
 			currentRow = i & 1; // odd even style
 			for (int j = 0; j <= length2; j++) {
 				if (i == 0 || j == 0) {

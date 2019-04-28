@@ -60,7 +60,7 @@ public class SubsetSum {
 		int currentRow = 0;
 		for (int i = 1; i <= set.length; i++) {
 
-			// set current row to 0 if i is EVEN and 1 i is ODD
+			// set current row to 0 if i is EVEN and 1 if i is ODD
 			currentRow = i & 1; // odd even style
 			for (int j = 1; j <= sum; j++) {
 
@@ -171,7 +171,7 @@ public class SubsetSum {
 		int currentRow = 0;
 		for (int i = 1; i <= length; i++) {
 
-			// set current row to 0 if i is EVEN and 1 i is ODD
+			// set current row to 0 if i is EVEN and 1 if i is ODD
 			currentRow = i & 1; // odd even style
 			for (int j = 1; j <= sum; j++) {
 
@@ -261,7 +261,7 @@ public class SubsetSum {
 		int currentRow = 0;
 		for (int i = 1; i <= set.length; i++) {
 
-			// set current row to 0 if i is EVEN and 1 i is ODD
+			// set current row to 0 if i is EVEN and 1 if i is ODD
 			currentRow = i & 1; // odd even style
 			for (int j = 1; j <= sum; j++) {
 
