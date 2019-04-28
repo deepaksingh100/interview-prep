@@ -18,23 +18,30 @@ public class PartitionEqualSubsetSum {
 	}
 
 	private static boolean isSubsetSum(int[] set, int sum) {
-		boolean[][] table = new boolean[set.length + 1][sum + 1];
-		for (int i = 0; i <= set.length; i++) {
+		int length = set.length;
+		boolean[][] table = new boolean[length + 1][sum + 1];
+
+		// sum zero is always achievable
+		for (int i = 0; i <= length; i++) {
 			table[i][0] = true;
 		}
-		for (int i = 1; i <= set.length; i++) {
+		for (int i = 1; i <= length; i++) {
 			for (int j = 1; j <= sum; j++) {
+
+				// If current element is greater than sum j
 				if (j < set[i - 1]) {
+
+					// Exclude the last element, recur for n = n - 1.
 					table[i][j] = table[i - 1][j];
 				} else {
-					table[i][j] = table[i - 1][j] || table[i - 1][j - set[i - 1]];
-				}
-				if (table[i][sum]) {
-					return true;
+					table[i][j] = table[i - 1][j] // Exclude the last element, recur for n = n - 1.
+							|| table[i - 1][j - set[i - 1]]// Include the last element, recur for n = n - 1, sum = sum –
+															// set[n - 1]
+					;
 				}
 			}
 		}
-		return table[set.length][sum];
+		return table[length][sum];
 	}
 
 }
