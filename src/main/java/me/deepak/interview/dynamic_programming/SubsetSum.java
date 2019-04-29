@@ -340,7 +340,7 @@ public class SubsetSum {
 			return;
 		}
 
-		// If we reached end (at index 0) and sum is zero. We addd subset to subsets.
+		// If we reached end (at index 0) and sum is zero. We add subset to subsets.
 		if (setEndIndex == 0 && sum == 0) {
 			subsets.add(new ArrayList<>(subset));
 			subset.clear();
@@ -359,11 +359,7 @@ public class SubsetSum {
 			getSubsets(table, set, setEndIndex - 1, sum, newSubset, subsets);
 		}
 
-		/*
-		 * If given sum can be achieved after selecting current element. NOTE : We are
-		 * examining entries for set[setEndIndex - 1]. Examining previous element means
-		 * ignoring current element.
-		 */
+		// If given sum can be achieved after selecting current element.
 		if (sum >= set[setEndIndex] && table[setEndIndex][sum - set[setEndIndex]]) {
 			subset.add(set[setEndIndex]);
 			getSubsets(table, set, setEndIndex - 1, sum - set[setEndIndex], subset, subsets);
@@ -371,8 +367,8 @@ public class SubsetSum {
 	}
 
 	public static void main(String[] args) {
-		int[] arr = { 1, 2, 3, 4, 5 };
-		System.out.println(getSubsets(arr, 10));
+		int[] arr = { 25, 27, 3, 12, 6, 15, 9, 30, 21, 19 };
+		System.out.println(getSubsets(arr, 50));
 
 	}
 }
