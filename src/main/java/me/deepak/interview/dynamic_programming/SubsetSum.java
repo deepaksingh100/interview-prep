@@ -1,5 +1,6 @@
 package me.deepak.interview.dynamic_programming;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -285,16 +286,93 @@ public class SubsetSum {
 	 * https://www.geeksforgeeks.org/perfect-sum-problem-print-subsets-given-sum/
 	 */
 
-	public static List<int[]> getSubsets(int[] set, int sum) {
-		return null;
+	public static List<List<Integer>> getSubsets(int[] set, int sum) {
+		int length = set.length;
+
+		/*
+		 * The value of table[i][j] will be true if there is a subset of set[0..i - 1]
+		 * with sum equal to j
+		 */
+		boolean[][] table = new boolean[length + 1][sum + 1];
+
+		// sum zero is always achievable
+		for (int i = 0; i <= length; i++) {
+			table[i][0] = true;
+		}
+		for (int i = 1; i <= length; i++) {
+			for (int j = 1; j <= sum; j++) {
+
+				// If current element is greater than sum j
+				if (j < set[i - 1]) {
+
+					// Exclude the last element, recur for n = n - 1.
+					table[i][j] = table[i - 1][j];
+				} else {
+					table[i][j] = table[i - 1][j] // Exclude the last element, recur for n = n - 1.
+							|| table[i - 1][j - set[i - 1]]// Include the last element, recur for n = n - 1, sum = sum –
+															// set[n - 1]
+					;
+				}
+			}
+		}
+
+		// No such subset found, returning empty list
+		if (!table[length][sum]) {
+			return new ArrayList<>();
+		}
+
+		// Now recursively traverse table[][] to find all paths from table[length][sum]
+		List<List<Integer>> subsets = new ArrayList<>();
+		ArrayList<Integer> subset = new ArrayList<>();
+		getSubsets(table, set, length - 1, sum, subset, subsets);
+		return subsets;
+	}
+
+	private static void getSubsets(boolean[][] table, int[] set, int setEndIndex, int sum, List<Integer> subset,
+			List<List<Integer>> subsets) {
+
+		// If we reached end (at index 0) and sum is non-zero. We add
+		// subset to subsets only if table[1][sum] is true.
+		if (setEndIndex == 0 && sum != 0 && table[1][sum]) {
+			subset.add(set[0]);
+			subsets.add(new ArrayList<>(subset));
+			subset.clear();
+			return;
+		}
+
+		// If we reached end (at index 0) and sum is zero. We addd subset to subsets.
+		if (setEndIndex == 0 && sum == 0) {
+			subsets.add(new ArrayList<>(subset));
+			subset.clear();
+			return;
+		}
+
+		/*
+		 * If given sum can be achieved after ignoring current element. NOTE : We are
+		 * examining entries for set[setEndIndex - 1]. Examining previous element means
+		 * ignoring current element.
+		 */
+		if (table[setEndIndex][sum]) {
+			// Create a new list to store new path
+			ArrayList<Integer> newSubset = new ArrayList<>();
+			newSubset.addAll(subset);
+			getSubsets(table, set, setEndIndex - 1, sum, newSubset, subsets);
+		}
+
+		/*
+		 * If given sum can be achieved after selecting current element. NOTE : We are
+		 * examining entries for set[setEndIndex - 1]. Examining previous element means
+		 * ignoring current element.
+		 */
+		if (sum >= set[setEndIndex] && table[setEndIndex][sum - set[setEndIndex]]) {
+			subset.add(set[setEndIndex]);
+			getSubsets(table, set, setEndIndex - 1, sum - set[setEndIndex], subset, subsets);
+		}
 	}
 
 	public static void main(String[] args) {
-		int[] arr = { 1, 3, 5, 5, 2, 1, 1, 6 };
-		System.out.println(isSameSumSubsetPartition(arr));
-
-		int[] arr1 = { 2, 3, 7, 8 };
-		System.out.print(isSubsetSum(arr1, 11));
+		int[] arr = { 1, 2, 3, 4, 5 };
+		System.out.println(getSubsets(arr, 10));
 
 	}
 }
