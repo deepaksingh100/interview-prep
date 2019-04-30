@@ -40,8 +40,8 @@ public class ActivitySelection {
 	}
 
 	private static final class Activity {
-		int start;
-		int end;
+		private int start;
+		private int end;
 
 		private Activity(int start, int end) {
 			this.start = start;

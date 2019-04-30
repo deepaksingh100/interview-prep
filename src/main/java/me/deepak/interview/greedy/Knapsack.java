@@ -41,11 +41,11 @@ public class Knapsack {
 	}
 
 	private static final class Item {
-		int value;
-		int weight;
+		private int value;
+		private int weight;
 
 		// per unit cost
-		double cost;
+		private double cost;
 
 		private Item(int value, int weight) {
 			this.value = value;
