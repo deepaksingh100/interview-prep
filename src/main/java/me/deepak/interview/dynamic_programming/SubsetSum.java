@@ -309,8 +309,8 @@ public class SubsetSum {
 					table[i][j] = table[i - 1][j];
 				} else {
 					table[i][j] = table[i - 1][j] // Exclude the last element, recur for n = n - 1.
-							|| table[i - 1][j - set[i - 1]]// Include the last element, recur for n = n - 1, sum = sum –
-															// set[n - 1]
+							|| table[i - 1][j - set[i - 1]] // Include the last element, recur for n = n - 1, sum = sum
+															// - set[n - 1]
 					;
 				}
 			}
@@ -354,8 +354,7 @@ public class SubsetSum {
 		 */
 		if (table[setEndIndex][sum]) {
 			// Create a new list to store new path
-			ArrayList<Integer> newSubset = new ArrayList<>();
-			newSubset.addAll(subset);
+			ArrayList<Integer> newSubset = new ArrayList<>(subset);
 			getSubsets(table, set, setEndIndex - 1, sum, newSubset, subsets);
 		}
 
@@ -367,8 +366,8 @@ public class SubsetSum {
 	}
 
 	public static void main(String[] args) {
-		int[] arr = { 25, 27, 3, 12, 6, 15, 9, 30, 21, 19 };
-		System.out.println(getSubsets(arr, 50));
+		int[] arr = { 1, 2, 3, 4, 5 };
+		System.out.println(getSubsets(arr, 10));
 
 	}
 }
