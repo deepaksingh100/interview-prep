@@ -15,7 +15,7 @@ public class Knapsack {
 	/**
 	 * Returns maximum value from given values, weights & capacity
 	 */
-	public static double knapsackFractional(int[] values, int[] weights, int capacity) {
+	public static double knapsackFractional(float[] values, int[] weights, int capacity) {
 		int length = values.length;
 		Item[] items = new Item[length];
 		for (int i = 0; i < length; i++) {
@@ -49,7 +49,7 @@ public class Knapsack {
 	 * Returns items in sequence which yields maximum value from given values,
 	 * weights & capacity
 	 */
-	public static List<Item> knapsackFractionalSolution(int[] values, int[] weights, int capacity) {
+	public static List<Item> knapsackFractionalSolution(float[] values, int[] weights, int capacity) {
 		int length = values.length;
 		Item[] items = new Item[length];
 		for (int i = 0; i < length; i++) {
@@ -57,7 +57,7 @@ public class Knapsack {
 		}
 
 		// sort items in non-ascending order of cost
-		Arrays.sort(items, (item1, item2) -> Double.compare(item2.cost, item1.cost));
+		Arrays.sort(items, (item1, item2) -> Float.compare(item2.cost, item1.cost));
 
 		// Holds optimal sequence, which gains optimal solution
 		List<Item> sequence = new ArrayList<>();
@@ -75,8 +75,8 @@ public class Knapsack {
 				// fraction to item's value means set it's cost (per unit weight) multiplied by
 				// remaining capacity to item's value. Then break.
 				// update item value to value which is possible in knapsack & weight as well
-				item.value += item.cost * capacity;
-				item.weight -= capacity;
+				item.value = item.cost * capacity;
+				item.weight = capacity;
 				sequence.add(item);
 				break;
 			}
@@ -86,17 +86,17 @@ public class Knapsack {
 
 	static final class Item {
 		int id;
-		int value;
+		float value;
 		int weight;
 
 		// per unit cost
-		double cost;
+		float cost;
 
-		private Item(int id, int value, int weight) {
+		private Item(int id, float value, int weight) {
 			this.id = id;
 			this.value = value;
 			this.weight = weight;
-			this.cost = (double) value / weight;
+			this.cost = value / weight;
 		}
 	}
 }
