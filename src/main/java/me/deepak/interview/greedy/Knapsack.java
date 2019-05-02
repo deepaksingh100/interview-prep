@@ -32,7 +32,6 @@ public class Knapsack {
 				// if current item's cost is less than or equals to remaining capacity,
 				// add it's value to total value, subtract it's weight from remaining capacity.
 				totalValue += item.value;
-
 				capacity -= item.weight;
 			} else {
 
@@ -40,7 +39,6 @@ public class Knapsack {
 				// fraction to answer means add it's cost (per unit weight) multiplied by
 				// remaining capacity to total value. Then break.
 				totalValue += item.cost * capacity;
-
 				break;
 			}
 		}
