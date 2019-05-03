@@ -3,8 +3,9 @@ package me.deepak.interview.multithreading.producer_consumer;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
-/*used blocking queue*/
-
+/*
+ * used blocking queue
+ */
 public class Main1 {
 
 	public static void main(String[] args) {

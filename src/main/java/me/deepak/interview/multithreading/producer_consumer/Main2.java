@@ -3,8 +3,9 @@ package me.deepak.interview.multithreading.producer_consumer;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
-/*used wait notifyall*/
-
+/*
+ * used wait notifyall
+ */
 public class Main2 {
 
 	public static void main(String[] args) {

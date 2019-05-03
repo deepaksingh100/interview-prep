@@ -3,8 +3,9 @@ package me.deepak.interview.multithreading.producer_consumer;
 import java.util.Random;
 import java.util.concurrent.BlockingQueue;
 
-/*used blocking queue*/
-
+/*
+ * used blocking queue
+ */
 class Consumer1 implements Runnable {
 
 	private BlockingQueue<Integer> queue;

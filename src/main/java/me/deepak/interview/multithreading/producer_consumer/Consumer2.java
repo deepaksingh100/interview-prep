@@ -3,8 +3,9 @@ package me.deepak.interview.multithreading.producer_consumer;
 import java.util.Queue;
 import java.util.Random;
 
-/*used wait notifyall*/
-
+/*
+ * used wait notifyall
+ */
 class Consumer2 implements Runnable {
 
 	private Queue<Integer> queue;

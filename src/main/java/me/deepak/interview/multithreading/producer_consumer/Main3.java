@@ -6,8 +6,9 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-/*used await signalall*/
-
+/*
+ * used await signalall
+ */
 public class Main3 {
 
 	public static void main(String[] args) {

@@ -5,8 +5,9 @@ import java.util.Random;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 
-/*used await signalall*/
-
+/*
+ * used await signalall
+ */
 class Consumer3 implements Runnable {
 
 	private Lock lock;
