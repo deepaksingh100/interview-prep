@@ -7,6 +7,9 @@ public final class LinkedList {
 	private LinkedList() {
 	}
 
+	/*
+	 * https://www.geeksforgeeks.org/linked-list-set-1-introduction/
+	 */
 	public static void printList(Node head) {
 		if (head == null) {
 			System.out.println("No elements found in the list");
@@ -14,12 +17,18 @@ public final class LinkedList {
 			System.out.println("Elements found in the list are : ");
 			Node current = head;
 			while (current != null) {
-				System.out.println(current.getData());
+				System.out.print(current.getData() + " ");
+
+				// go to next node, will be used in every method
 				current = current.getNext();
 			}
 		}
 	}
 
+	/*
+	 * https://www.geeksforgeeks.org/find-length-of-a-linked-list-iterative-and-
+	 * recursive/
+	 */
 	public static int length(Node head) {
 		int length = 0;
 		Node current = head;
@@ -30,15 +39,24 @@ public final class LinkedList {
 		return length;
 	}
 
-	public static void insert(Node head, Node newNode, int position) {
+	/*
+	 * https://www.geeksforgeeks.org/linked-list-set-2-inserting-a-node/
+	 */
+	public static Node insert(Node head, Node newNode, int position) {
 		if (position == 0) {
+
+			// if position is 0, add new node to start and make that new head
 			newNode.setNext(head);
-			head = newNode;
+			return newNode;
 		} else {
 			Node current = head;
 			int currentPosition = 0;
 			while (current != null) {
+
+				// one before position
 				if (currentPosition + 1 == position) {
+
+					// insert new node, so that it will take given position
 					newNode.setNext(current.getNext());
 					current.setNext(newNode);
 					break;
@@ -47,59 +65,41 @@ public final class LinkedList {
 				current = current.getNext();
 			}
 		}
-		printList(head);
+		return head;
 	}
 
-	public static void reverse(Node head) {
-		if (head == null) {
-			return;
-		}
+	/*
+	 * https://www.geeksforgeeks.org/reverse-a-linked-list/
+	 */
+	public static Node reverse(Node head) {
 		Node prev = null;
-		Node current = head;
+		Node curr = head;
 		Node next = null;
-		while (current != null) {
-			next = current.getNext();
-			current.setNext(prev);
-			prev = current;
-			current = next;
+		while (curr != null) {
+			next = curr.getNext();
+			curr.setNext(prev);
+			prev = curr;
+			curr = next;
 		}
-		printList(prev);
+		head = prev;
+		return head;
 	}
 
-	public static Node mergeLists(Node headA, Node headB) {
-		if (headA == null)
-			return headB;
-		else if (headB == null)
-			return headA;
-		Node finalHead = null;
-		Node currentA = headA;
-		Node currentB = headB;
-		if (currentA.getData() < currentB.getData()) {
-			finalHead = currentA;
-			currentA = currentA.getNext();
-		} else {
-			finalHead = currentB;
-			currentB = currentB.getNext();
+	/*
+	 * https://www.geeksforgeeks.org/write-a-c-function-to-print-the-middle-of-the-
+	 * linked-list/
+	 */
+	public static Node getMid(Node head) {
+		if (head == null || head.getNext() == null) {
+			return head;
 		}
-		finalHead.setNext(null);
-		Node currentFinal = finalHead;
-		while (currentA != null && currentB != null) {
-			if (currentA.getData() < currentB.getData()) {
-				currentFinal.setNext(currentA);
-				currentA = currentA.getNext();
-			} else {
-				currentFinal.setNext(currentB);
-				currentB = currentB.getNext();
-			}
-			currentFinal = currentFinal.getNext();
-			currentFinal.setNext(null);
+		Node slowPointer = head;
+		Node fastPointer = head;
+		while (fastPointer != null && fastPointer.getNext() != null && fastPointer.getNext().getNext() != null) {
+			slowPointer = slowPointer.getNext();
+			fastPointer = fastPointer.getNext().getNext();
 		}
-		if (currentA != null) {
-			currentFinal.setNext(currentA);
-		} else {
-			currentFinal.setNext(currentB);
-		}
-		return finalHead;
+		return slowPointer;
 	}
 
 	public static Node zigzag(Node head) {
