@@ -1,3 +1,3 @@
 # interview-prep
 
-Topics that I prepared for interviews.
+Topics that I have prepared for interviews.
