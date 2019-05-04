@@ -15,6 +15,9 @@ public final class MaxHeapUtil {
 		Heap maxHeap = new Heap();
 		maxHeap.setHeap(list);
 		maxHeap.setSize(list.size());
+
+		// since lastsize / 2 nodes in heap does not have children, we only
+		// call maxHeapify on first size / 2 nodes
 		for (int i = maxHeap.getSize() / 2; i >= 0; i--) {
 			maxHeapify(maxHeap, i);
 		}
@@ -24,15 +27,26 @@ public final class MaxHeapUtil {
 	public static void maxHeapify(Heap maxHeap, int root) {
 		int left = left(root);
 		int right = right(root);
+
+		// let current largest value is at root
 		int largest = root;
+
 		List<Integer> heap = maxHeap.getHeap();
 		int heapSize = maxHeap.getSize();
+
 		if (left < heapSize && heap.get(left) > heap.get(largest)) {
+
+			// new largest found
 			largest = left;
 		}
 		if (right < heapSize && heap.get(right) > heap.get(largest)) {
+
+			// new largest found
 			largest = right;
 		}
+
+		// if root has not the largest value, swap largest & root, call maxheapify on
+		// largest
 		if (largest != root) {
 			swap(heap, largest, root);
 			maxHeapify(maxHeap, largest);
@@ -50,8 +64,12 @@ public final class MaxHeapUtil {
 		}
 		List<Integer> heap = maxHeap.getHeap();
 		int max = heap.get(0);
+
+		// replace heap[0] by heap[size - 1], decrement size by 1
 		heap.set(0, heap.get(--heapSize));
 		maxHeap.setSize(heapSize);
+
+		// call maxheapify on shorter heap
 		maxHeapify(maxHeap, 0);
 		return max;
 	}
@@ -61,7 +79,11 @@ public final class MaxHeapUtil {
 		if (key < heap.get(index)) {
 			throw new IllegalArgumentException("New key is smaller than current key");
 		}
+
+		// set new valid key at index
 		heap.set(index, key);
+
+		// swapping parent & child till heap property is not restored
 		while (index > 0 && heap.get(parent(index)) < heap.get(index)) {
 			swap(heap, index, parent(index));
 			index = parent(index);
@@ -69,10 +91,16 @@ public final class MaxHeapUtil {
 	}
 
 	public static void maxHeapInsert(Heap maxHeap, int key) {
+
+		// increase heap size by 1
 		int heapSize = maxHeap.getSize();
 		heapSize++;
 		maxHeap.setSize(heapSize);
+		
+		// set Integer.MIN_VALUE at last index
 		maxHeap.getHeap().set(heapSize - 1, Integer.MIN_VALUE);
+
+		// Now call heapIncreaseKey with last index
 		heapIncreaseKey(maxHeap, heapSize - 1, key);
 	}
 
