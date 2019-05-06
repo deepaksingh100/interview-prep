@@ -61,11 +61,18 @@ public class BSTIterativeUtil {
 		return root;
 	}
 
+	/*
+	 * https://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-search-tree/
+	 */
 	public static Node lowestCommonAncestor(Node root, int key1, int key2) {
 		while (root != null) {
 			if (Math.max(key1, key2) < root.getKey()) {
+
+				// If both key1 and key2 are smaller than root, then LCA lies in left
 				root = root.getLeft();
 			} else if (Math.min(key1, key2) > root.getKey()) {
+
+				// If both key1 and key2 are greater than root, then LCA lies in right
 				root = root.getRight();
 			} else {
 				break;

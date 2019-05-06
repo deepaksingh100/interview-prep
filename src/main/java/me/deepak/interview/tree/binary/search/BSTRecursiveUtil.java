@@ -79,12 +79,22 @@ public class BSTRecursiveUtil {
 		return isBST(root.getLeft(), min, root.getKey()) && isBST(root.getRight(), root.getKey(), max);
 	}
 
+	/*
+	 * https://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-search-tree/
+	 */
 	public static Node lowestCommonAncestor(Node root, int key1, int key2) {
+
 		if (root == null) {
+
+			// base case
 			return null;
 		} else if (Math.max(key1, key2) < root.getKey()) {
+
+			// If both key1 and key2 are smaller than root, then LCA lies in left
 			return lowestCommonAncestor(root.getLeft(), key1, key2);
 		} else if (Math.min(key1, key2) > root.getKey()) {
+
+			// If both key1 and key2 are greater than root, then LCA lies in right
 			return lowestCommonAncestor(root.getRight(), key1, key2);
 		}
 		return root;
