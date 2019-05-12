@@ -2,8 +2,7 @@ package me.deepak.interview.tree.binary.search;
 
 import me.deepak.interview.tree.binary.beans.Node;
 
-/**
- * 
+/*
  * Traverse tree in post order fashion. Left and right nodes return 4 piece of
  * information to root which isBST, size of max BST, min and max in those
  * subtree. If both left and right subtree are BST and this node data is greater
@@ -11,11 +10,10 @@ import me.deepak.interview.tree.binary.beans.Node;
  * left size + right size + 1 and new min will be min of left side and new max
  * will be max of right side.
  * 
- * References:
- * 
  * https://youtu.be/4fiDs7CCxkc
  * http://www.geeksforgeeks.org/find-the-largest-subtree-in-a-tree-that-is-also-a-bst/
- * https://leetcode.com/problems/largest-bst-subtree/
+ * https://www.geeksforgeeks.org/largest-bst-binary-tree-set-2/
+ * https://github.com/mission-peace/interview/blob/master/src/com/interview/tree/LargestBSTInBinaryTree.java
  */
 
 public class LargestBSTInBinaryTree {
@@ -24,8 +22,8 @@ public class LargestBSTInBinaryTree {
 	}
 
 	public static int largestBST(Node root) {
-		MinMax m = largest(root);
-		return m.size;
+		MinMax minMax = largest(root);
+		return minMax.size;
 	}
 
 	private static MinMax largest(Node root) {
@@ -44,14 +42,14 @@ public class LargestBSTInBinaryTree {
 		// of this node is not greater/equal than max of left and less than min of right
 		// then subtree with this node as root will not be BST.
 		// Return false and max size of left and right subtree to parent
-		if (!leftMinMax.isBST || !rightMinMax.isBST
-				|| (leftMinMax.max > root.getKey() || rightMinMax.min <= root.getKey())) {
+		if (!leftMinMax.isBST || !rightMinMax.isBST || leftMinMax.max > root.getKey()
+				|| rightMinMax.min < root.getKey()) {
 			currentMinMax.isBST = false;
 			currentMinMax.size = Math.max(leftMinMax.size, rightMinMax.size);
 			return currentMinMax;
 		}
 
-		// if we reach this point means subtree with this node as root is BST.
+		// if we reach at this point means subtree with this node as root is BST.
 		// Set isBST as true. Then set size as size of left + size of right + 1.
 		// Set min and max to be returned to parent.
 		currentMinMax.isBST = true;
@@ -67,22 +65,23 @@ public class LargestBSTInBinaryTree {
 
 		return currentMinMax;
 	}
-}
 
-/**
- * Object of this class holds information which child passes back to parent
- * node.
- */
-class MinMax {
-	int min;
-	int max;
-	boolean isBST;
-	int size;
+	/*
+	 * Object of this class holds information which child passes back to parent
+	 * node.
+	 */
+	private static final class MinMax {
+		private int min;
+		private int max;
+		private boolean isBST;
+		private int size;
 
-	MinMax() {
-		min = Integer.MAX_VALUE;
-		max = Integer.MIN_VALUE;
-		isBST = true;
-		size = 0;
+		private MinMax() {
+			min = Integer.MAX_VALUE;
+			max = Integer.MIN_VALUE;
+			isBST = true;
+			size = 0;
+		}
 	}
+
 }
