@@ -18,7 +18,7 @@ public class BinaryTreeFromInOrderAndPostOrder {
 		return buildTreeFromInOrderAndPostOrder(inOrder, start, end, postOrder, start, end, map);
 	}
 
-	public static Node buildTreeFromInOrderAndPostOrder(int[] inOrder, int inStart, int inEnd, int[] postOrder,
+	private static Node buildTreeFromInOrderAndPostOrder(int[] inOrder, int inStart, int inEnd, int[] postOrder,
 			int postStart, int postEnd, Map<Integer, Integer> map) {
 		if (inStart > inEnd || postStart > postEnd) {
 			return null;

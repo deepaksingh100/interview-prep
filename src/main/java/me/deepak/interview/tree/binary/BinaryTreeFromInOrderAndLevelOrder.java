@@ -18,7 +18,7 @@ public class BinaryTreeFromInOrderAndLevelOrder {
 		return buildTreeFromInOrderAndLevelOrder(inOrder, levelOrder, start, end, map);
 	}
 
-	public static Node buildTreeFromInOrderAndLevelOrder(int[] inOrder, int[] levelOrder, int inStart, int inEnd,
+	private static Node buildTreeFromInOrderAndLevelOrder(int[] inOrder, int[] levelOrder, int inStart, int inEnd,
 			Map<Integer, Integer> map) {
 		if (inStart > inEnd) {
 			return null;

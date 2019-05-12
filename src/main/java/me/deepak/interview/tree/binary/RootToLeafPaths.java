@@ -18,6 +18,8 @@ public class RootToLeafPaths {
 	 * paths/
 	 */
 	public static void findRootToLeafPaths(Node root, List<Integer> currentPath, List<List<Integer>> paths) {
+
+		// base case
 		if (root == null) {
 			return;
 		}

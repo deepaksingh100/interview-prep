@@ -14,33 +14,22 @@ public class RootToLeafSum {
 	/*
 	 * https://www.geeksforgeeks.org/root-to-leaf-path-sum-equal-to-a-given-number/
 	 */
-	public static boolean isRootToLeafSumExists(Node root, int sum, List<Integer> result) {
+	public static boolean isRootToLeafSumExists(Node root, int sum) {
 
+		// base case
 		if (root == null) {
 			return false;
 		}
 
 		// root is leaf node
 		if (root.getLeft() == null && root.getRight() == null) {
-			if (root.getKey() == sum) {
-				result.add(root.getKey());
-				return true;
-			}
-			return false;
+			return root.getKey() == sum;
 		}
 
 		// recur with sum - current key for left & right subtree
-		if (isRootToLeafSumExists(root.getLeft(), sum - root.getKey(), result)) {
-			result.add(root.getKey());
-			return true;
-		}
+		return isRootToLeafSumExists(root.getLeft(), sum - root.getKey())
+				|| isRootToLeafSumExists(root.getRight(), sum - root.getKey());
 
-		if (isRootToLeafSumExists(root.getRight(), sum - root.getKey(), result)) {
-			result.add(root.getKey());
-			return true;
-		}
-
-		return false;
 	}
 
 	/*

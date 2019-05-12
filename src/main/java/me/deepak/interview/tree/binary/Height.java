@@ -30,16 +30,13 @@ public class Height {
 		}
 		Queue<Node> queue = new ArrayDeque<>();
 		queue.add(root);
+
 		int height = 0;
-		while (true) {
-			int nodeCount = queue.size();
-			if (nodeCount == 0) {
-				return height;
-			}
+		while (!queue.isEmpty()) {
 			height++;
-			while (nodeCount > 0) {
+			int size = queue.size();
+			while (size-- > 0) {
 				root = queue.remove();
-				nodeCount--;
 				if (root.getLeft() != null) {
 					queue.add(root.getLeft());
 				}
@@ -48,6 +45,7 @@ public class Height {
 				}
 			}
 		}
+		return height;
 	}
 
 }
