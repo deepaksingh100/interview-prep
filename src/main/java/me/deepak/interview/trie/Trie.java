@@ -3,18 +3,15 @@ package me.deepak.interview.trie;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- *
- * References :
- *
+/*
+ * https://github.com/mission-peace/interview/blob/master/src/com/interview/suffixprefix/Trie.java
  * https://youtu.be/AXjmTQ8LEoI 
  * https://en.wikipedia.org/wiki/Trie
- * 
  */
 
 public class Trie {
 
-	private class TrieNode {
+	private static final class TrieNode {
 		Map<Character, TrieNode> children;
 		boolean endOfWord;
 
@@ -30,7 +27,7 @@ public class Trie {
 		root = new TrieNode();
 	}
 
-	/**
+	/*
 	 * Iterative implementation of insert into trie
 	 */
 	public void insert(String word) {
@@ -38,17 +35,20 @@ public class Trie {
 		for (int i = 0; i < word.length(); i++) {
 			char ch = word.charAt(i);
 			TrieNode node = current.children.get(ch);
+
+			// if node does not exists in map then create one and put it into map
 			if (node == null) {
 				node = new TrieNode();
 				current.children.put(ch, node);
 			}
 			current = node;
 		}
+
 		// mark the current nodes endOfWord as true
 		current.endOfWord = true;
 	}
 
-	/**
+	/*
 	 * Recursive implementation of insert into trie
 	 */
 	public void insertRecursive(String word) {
@@ -57,6 +57,7 @@ public class Trie {
 
 	private void insertRecursive(TrieNode current, String word, int index) {
 		if (index == word.length()) {
+
 			// if end of word is reached then mark endOfWord as true on current node
 			current.endOfWord = true;
 			return;
@@ -72,7 +73,7 @@ public class Trie {
 		insertRecursive(node, word, index + 1);
 	}
 
-	/**
+	/*
 	 * Iterative implementation of search into trie.
 	 */
 	public boolean search(String word) {
@@ -80,17 +81,19 @@ public class Trie {
 		for (int i = 0; i < word.length(); i++) {
 			char ch = word.charAt(i);
 			TrieNode node = current.children.get(ch);
+
 			// if node does not exist for given char then return false
 			if (node == null) {
 				return false;
 			}
 			current = node;
 		}
+
 		// return true of current's endOfWord is true else return false.
 		return current.endOfWord;
 	}
 
-	/**
+	/*
 	 * Recursive implementation of search into trie.
 	 */
 	public boolean searchRecursive(String word) {
@@ -99,11 +102,13 @@ public class Trie {
 
 	private boolean searchRecursive(TrieNode current, String word, int index) {
 		if (index == word.length()) {
-			// return true of current's endOfWord is true else return false.
+
+			// return true if current's endOfWord is true else return false.
 			return current.endOfWord;
 		}
 		char ch = word.charAt(index);
 		TrieNode node = current.children.get(ch);
+
 		// if node does not exist for given char then return false
 		if (node == null) {
 			return false;
@@ -111,25 +116,27 @@ public class Trie {
 		return searchRecursive(node, word, index + 1);
 	}
 
-	/**
+	/*
 	 * Delete word from trie.
 	 */
 	public void delete(String word) {
 		delete(root, word, 0);
 	}
 
-	/**
+	/*
 	 * Returns true if parent should delete the mapping
 	 */
 	private boolean delete(TrieNode current, String word, int index) {
 		if (index == word.length()) {
+
 			// when end of word is reached only delete if currrent.endOfWord is true.
 			if (!current.endOfWord) {
 				return false;
 			}
 			current.endOfWord = false;
+
 			// if current has no other mapping then return true
-			return current.children.size() == 0;
+			return current.children.isEmpty();
 		}
 		char ch = word.charAt(index);
 		TrieNode node = current.children.get(ch);
@@ -143,7 +150,7 @@ public class Trie {
 		if (shouldDeleteCurrentNode) {
 			current.children.remove(ch);
 			// return true if no mappings are left in the map.
-			return current.children.size() == 0;
+			return current.children.isEmpty();
 		}
 		return false;
 	}
