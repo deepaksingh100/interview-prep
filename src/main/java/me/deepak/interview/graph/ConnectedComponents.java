@@ -2,18 +2,23 @@ package me.deepak.interview.graph;
 
 public class ConnectedComponents {
 
-	private Graph graph;
-
-	public ConnectedComponents(Graph graph) {
-		this.graph = graph;
+	private ConnectedComponents() {
 	}
 
-	public void connectedComponents() {
+	/*
+	 * https://www.geeksforgeeks.org/connected-components-in-an-undirected-graph/
+	 */
+	public static void connectedComponents(Graph graph) {
 		int vertexCount = graph.getVertexCount();
+
+		// mark all the vertices as not visited
 		boolean[] isVisited = new boolean[vertexCount];
-		for (int i = 0; i < vertexCount; i++) { // disjoint graph
+
+		for (int i = 0; i < vertexCount; i++) {
 			if (!isVisited[i]) {
-				new DepthFirstTraversal(graph).depthFirstTraversal(i, isVisited);
+
+				// print all reachable vertices from i
+				Traversals.depthFirst(graph, i, isVisited);
 				System.out.println();
 			}
 		}
