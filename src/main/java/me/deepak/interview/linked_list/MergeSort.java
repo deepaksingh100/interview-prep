@@ -18,7 +18,7 @@ public final class MergeSort {
 		}
 
 		// get mid node
-		Node mid = LinkedList.getMid(head);
+		Node mid = Mid.getMid(head);
 
 		// head for right half
 		Node nextToMid = mid.getNext();
