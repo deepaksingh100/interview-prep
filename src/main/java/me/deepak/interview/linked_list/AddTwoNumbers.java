@@ -6,7 +6,6 @@ import me.deepak.interview.linked_list.beans.Node;
  * https://leetcode.com/problems/add-two-numbers/
  * https://www.geeksforgeeks.org/add-two-numbers-represented-by-linked-lists/
 */
-
 public class AddTwoNumbers {
 
 	private AddTwoNumbers() {

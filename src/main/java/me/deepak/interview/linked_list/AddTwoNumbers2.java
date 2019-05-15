@@ -7,7 +7,6 @@ import me.deepak.interview.linked_list.beans.Node;
 /*
  * https://leetcode.com/problems/add-two-numbers-ii/
 */
-
 public class AddTwoNumbers2 {
 
 	private AddTwoNumbers2() {
