@@ -27,8 +27,8 @@ public class BinaryTreeFromPreorderAndInorderTraversal {
 		int rootValue = preOrder[preStart];
 		TreeNode root = new TreeNode(rootValue);
 		int index = map.get(rootValue);
-		root.left = buildTree(inOrder, inStart, index - 1, preOrder, preStart + 1, preEnd + index - inEnd, map);
-		root.right = buildTree(inOrder, index + 1, inEnd, preOrder, preEnd + index + 1 - inEnd, preEnd, map);
+		root.left = buildTree(inOrder, inStart, index - 1, preOrder, preStart + 1, preStart + index - inStart, map);
+		root.right = buildTree(inOrder, index + 1, inEnd, preOrder, preStart + index - inStart + 1, preEnd, map);
 		return root;
 	}
 
