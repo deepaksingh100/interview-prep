@@ -5,7 +5,6 @@ import me.deepak.interview.leetcode.beans.TreeNode;
 /*
  * https://leetcode.com/problems/balanced-binary-tree/
 */
-
 public class BalancedBinaryTree {
 
 	public boolean isBalanced(TreeNode root) {

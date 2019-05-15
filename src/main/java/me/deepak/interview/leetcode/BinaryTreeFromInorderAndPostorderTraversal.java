@@ -8,7 +8,6 @@ import me.deepak.interview.leetcode.beans.TreeNode;
 /*
  * https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
 */
-
 public class BinaryTreeFromInorderAndPostorderTraversal {
 
 	public TreeNode buildTree(int[] inOrder, int[] postOrder) {
