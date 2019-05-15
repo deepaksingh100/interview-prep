@@ -9,8 +9,8 @@ import me.deepak.interview.leetcode.beans.ListNode;
 public class AddTwoNumbers {
 
 	public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-		ListNode result = null;
-		ListNode resultHead = null;
+		ListNode head = null;
+		ListNode current = null;
 		int sum = 0;
 		int carry = 0;
 		while (l1 != null || l2 != null) {
@@ -25,21 +25,20 @@ public class AddTwoNumbers {
 			sum += carry;
 			carry = sum / 10;
 			sum %= 10;
-			ListNode node = new ListNode(sum);
+			ListNode newNode = new ListNode(sum);
 			sum = 0;
-			if (resultHead != null) {
-				result.next = node;
-				result = result.next;
+			if (head != null) {
+				current.next = newNode;
+				current = current.next;
 			} else {
-				result = node;
-				resultHead = result;
+				head = newNode;
+				current = head;
 			}
 		}
 		if (carry > 0) {
-			ListNode node = new ListNode(carry);
-			result.next = node;
+			current.next = new ListNode(carry);
 		}
-		return resultHead;
+		return head;
 	}
 
 }

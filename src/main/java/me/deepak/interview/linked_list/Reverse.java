@@ -20,8 +20,7 @@ public class Reverse {
 			prev = curr;
 			curr = next;
 		}
-		head = prev;
-		return head;
+		return prev;
 	}
 
 }
