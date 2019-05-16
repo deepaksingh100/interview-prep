@@ -13,9 +13,11 @@ public class EditDistance {
 		for (int i = 0; i <= size1; i++) {
 			for (int j = 0; j <= size2; j++) {
 				if (i == 0 || j == 0) {
+
 					// If any of the string is empty then answer would be length of other string
 					table[i][j] = Math.max(i, j);
 				} else if (word1.charAt(i - 1) == word2.charAt(j - 1)) {
+
 					/*
 					 * If last characters of two strings are same, nothing much to do. Ignore last
 					 * characters and get count for remaining strings.
@@ -23,6 +25,7 @@ public class EditDistance {
 					 */
 					table[i][j] = table[i - 1][j - 1];
 				} else {
+
 					/*
 					 * If the last character is different, consider all possibilities and find the
 					 * minimum
