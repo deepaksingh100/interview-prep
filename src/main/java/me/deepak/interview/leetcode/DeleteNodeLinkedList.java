@@ -5,7 +5,6 @@ import me.deepak.interview.leetcode.beans.ListNode;
 /*
  * https://leetcode.com/problems/delete-node-in-a-linked-list/
 */
-
 public class DeleteNodeLinkedList {
 
 	public void deleteNode(ListNode node) {

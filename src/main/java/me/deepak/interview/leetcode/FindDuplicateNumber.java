@@ -3,10 +3,10 @@ package me.deepak.interview.leetcode;
 /*
  * https://leetcode.com/problems/find-the-duplicate-number/
 */
-
-public class DuplicateNumberLinkedList {
+public class FindDuplicateNumber {
 
 	public int findDuplicate(int[] nums) {
+		
 		// Find the intersection point of the two runners.
 		int slow = nums[0];
 		int fast = nums[0];

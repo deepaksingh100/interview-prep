@@ -5,7 +5,6 @@ import me.deepak.interview.leetcode.beans.TreeNode;
 /*
  * https://leetcode.com/problems/diameter-of-binary-tree/
 */
-
 public class DiameterOfBinaryTree {
 
 	class Height {
