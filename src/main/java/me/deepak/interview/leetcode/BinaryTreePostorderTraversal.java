@@ -45,5 +45,4 @@ public class BinaryTreePostorderTraversal {
 		}
 		return traversal;
 	}
-
 }

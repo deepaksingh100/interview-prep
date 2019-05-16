@@ -39,11 +39,11 @@ public class BinaryTreePreorderTraversal {
 			if (root.right != null) {
 				stack.push(root.right);
 			}
+			
 			if (root.left != null) {
 				stack.push(root.left);
 			}
 		}
 		return traversal;
-
 	}
 }
