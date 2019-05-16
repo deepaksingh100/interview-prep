@@ -1,12 +1,14 @@
-package me.deepak.interview.leetcode;
+package me.deepak.interview.linked_list;
 
 /*
- * https://leetcode.com/problems/copy-list-with-random-pointer/
+ * https://www.geeksforgeeks.org/a-linked-list-with-next-and-arbit-pointer/
 */
 public class CopyListWithRandomPointer {
 
-	public Node copyRandomList(Node head) {
+	private CopyListWithRandomPointer() {
+	}
 
+	public static Node copyRandomList(Node head) {
 		if (head == null) {
 			return head;
 		}
@@ -40,9 +42,9 @@ public class CopyListWithRandomPointer {
 			}
 			current = current.next;
 		}
-
 		return newHead;
 	}
+
 }
 
 class Node {
@@ -50,7 +52,8 @@ class Node {
 	Node next;
 	Node random;
 
-	Node(int val) {
+	public Node(int val) {
 		this.val = val;
 	}
+
 }
