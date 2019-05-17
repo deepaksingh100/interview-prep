@@ -4,13 +4,14 @@ import me.deepak.interview.leetcode.beans.ListNode;
 
 /*
  * https://leetcode.com/problems/intersection-of-two-linked-lists/
+ * https://www.geeksforgeeks.org/write-a-function-to-get-the-intersection-point-of-two-linked-lists/
 */
-
 public class IntersectionOfTwoLinkedLists {
 
 	public ListNode getIntersectionNode(ListNode head1, ListNode head2) {
 		int count1 = count(head1);
 		int count2 = count(head2);
+
 		if (count1 > count2) {
 			return getIntersectionNode(count1 - count2, head1, head2);
 		}
@@ -33,6 +34,7 @@ public class IntersectionOfTwoLinkedLists {
 		for (int i = 0; i < d; i++) {
 			curr1 = curr1.next;
 		}
+
 		while (curr1 != null && curr2 != null) {
 			if (curr1 == curr2) {
 				return curr1;
