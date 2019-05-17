@@ -22,9 +22,11 @@ public class LongestPalindromicSubsequence {
 
 	public static int lpsLength(char[] sequence) {
 		int length = sequence.length;
+
+		// table [i][j] will store lps of sequence[i...j]
 		int[][] table = new int[length][length];
 
-		// Strings of length 1 are palindrome of length 1
+		// strings of length 1 are palindrome of length 1
 		for (int i = 0; i < length; i++) {
 			table[i][i] = 1;
 		}
@@ -41,17 +43,21 @@ public class LongestPalindromicSubsequence {
 				int j = i + l - 1;
 
 				if (sequence[i] == sequence[j] && l == 2) {
+
 					// palindrome with length 2
 					table[i][j] = 2;
 				} else if (sequence[i] == sequence[j]) {
+
 					// move both end pointers by one
 					table[i][j] = table[i + 1][j - 1] + 2;
 				} else {
+
 					// max(move left end pointer by one, move right end pointer by one)
 					table[i][j] = Math.max(table[i][j - 1], table[i + 1][j]);
 				}
 			}
 		}
+
 		// table [i][j] stored lps of sequence[i...j]
 		return table[0][length - 1];
 	}

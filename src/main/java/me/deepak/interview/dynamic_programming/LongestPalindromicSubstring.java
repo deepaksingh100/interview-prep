@@ -8,7 +8,6 @@ public class LongestPalindromicSubstring {
 	/*
 	 * https://www.geeksforgeeks.org/longest-palindrome-substring-set-1/
 	 */
-
 	public static String lps(String s) {
 		int length = s.length();
 
