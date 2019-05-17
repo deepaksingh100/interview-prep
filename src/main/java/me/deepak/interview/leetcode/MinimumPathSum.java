@@ -3,7 +3,6 @@ package me.deepak.interview.leetcode;
 /*
  * https://leetcode.com/problems/minimum-path-sum/
 */
-
 public class MinimumPathSum {
 
 	public int minPathSum(int[][] costs) {

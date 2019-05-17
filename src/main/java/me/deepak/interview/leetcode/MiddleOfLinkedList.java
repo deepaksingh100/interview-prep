@@ -5,7 +5,6 @@ import me.deepak.interview.leetcode.beans.ListNode;
 /*
  * https://leetcode.com/problems/middle-of-the-linked-list/
 */
-
 public class MiddleOfLinkedList {
 
 	public ListNode middleNode(ListNode head) {
