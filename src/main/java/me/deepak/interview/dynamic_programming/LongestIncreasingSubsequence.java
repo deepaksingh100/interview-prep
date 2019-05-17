@@ -7,6 +7,9 @@ public class LongestIncreasingSubsequence {
 	private LongestIncreasingSubsequence() {
 	}
 
+	/*
+	 * https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/
+	 */
 	public static int lisLength(int[] arr) {
 		int length = arr.length;
 		int[] lisLengths = new int[length];
@@ -31,6 +34,10 @@ public class LongestIncreasingSubsequence {
 		return Arrays.stream(lisLengths).max().getAsInt();
 	}
 
+	/*
+	 * https://www.geeksforgeeks.org/construction-of-longest-increasing-subsequence-
+	 * using-dynamic-programming/
+	 */
 	public static int[] lis(int[] arr) {
 		int length = arr.length;
 		int[] lisLengths = new int[length];
@@ -55,8 +62,10 @@ public class LongestIncreasingSubsequence {
 		int lisLength = Arrays.stream(lisLengths).max().getAsInt();
 
 		int[] lis = new int[lisLength];
+		
 		// loop on lisLengths
 		for (int i = length - 1; i >= 0; i--) {
+			
 			// if current lisLength == lisLengths[i], add it to lis
 			if (lisLengths[i] == lisLength) {
 				lis[--lisLength] = arr[i];
