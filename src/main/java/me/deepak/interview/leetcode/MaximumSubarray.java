@@ -3,10 +3,10 @@ package me.deepak.interview.leetcode;
 /*
  * https://leetcode.com/problems/maximum-subarray/
 */
-
 public class MaximumSubarray {
 
 	public int maxSubArray(int[] a) {
+		
 		int sum = 0;
 		int maxSum = Integer.MIN_VALUE;
 		for (int i = 0; i < a.length; i++) {

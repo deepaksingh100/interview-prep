@@ -2,11 +2,12 @@ package me.deepak.interview.leetcode;
 
 /*
  * https://leetcode.com/problems/maximum-product-subarray/
+ * https://leetcode.com/problems/maximum-product-subarray/discuss/48230/Possibly-simplest-solution-with-O(n)-time-complexity
 */
-
 public class MaximumProductSubarray {
 
 	public int maxProduct(int[] a) {
+
 		int minValue = a[0];
 		int maxValue = a[0];
 		int maxProduct = a[0];
