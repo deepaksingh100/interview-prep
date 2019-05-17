@@ -85,7 +85,6 @@ public class SubsetSum {
 	 * https://leetcode.com/problems/partition-equal-subset-sum/
 	 * https://www.geeksforgeeks.org/partition-problem-dp-18/
 	 */
-
 	public static boolean isSameSumSubsetPartition(int[] set) {
 		int sum = Arrays.stream(set).sum();
 
@@ -105,7 +104,6 @@ public class SubsetSum {
 	 * https://www.geeksforgeeks.org/partition-a-set-into-two-subsets-such-that-the-
 	 * difference-of-subset-sums-is-minimum/
 	 */
-
 	public static int getBalancedPartitionedDiff(int[] set) {
 		int length = set.length;
 		int sum = Arrays.stream(set).sum();
@@ -156,7 +154,6 @@ public class SubsetSum {
 	 * https://www.geeksforgeeks.org/partition-a-set-into-two-subsets-such-that-the-
 	 * difference-of-subset-sums-is-minimum/
 	 */
-
 	public static int getBalancedPartitionedDiffSpaceOptimized(int[] set) {
 		int length = set.length;
 		int sum = Arrays.stream(set).sum();
@@ -285,7 +282,6 @@ public class SubsetSum {
 	/*
 	 * https://www.geeksforgeeks.org/perfect-sum-problem-print-subsets-given-sum/
 	 */
-
 	public static List<List<Integer>> getSubsets(int[] set, int sum) {
 		int length = set.length;
 
