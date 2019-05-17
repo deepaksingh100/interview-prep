@@ -2,8 +2,8 @@ package me.deepak.interview.leetcode;
 
 /*
  * https://leetcode.com/problems/product-of-array-except-self/
+ * https://www.geeksforgeeks.org/a-product-array-puzzle/
 */
-
 public class ProductOfArrayExceptSelf {
 
 	public int[] productExceptSelf(int[] a) {
