@@ -7,7 +7,6 @@ import me.deepak.interview.leetcode.beans.TreeNode;
 
 /*
  * https://leetcode.com/problems/path-sum-ii/
- * 
  * https://youtu.be/3B5gnrwRmOA
 */
 public class PathSum2 {
