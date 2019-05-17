@@ -45,15 +45,13 @@ public class CopyListWithRandomPointer {
 		return newHead;
 	}
 
-}
+	private static final class Node {
+		int val;
+		Node next;
+		Node random;
 
-class Node {
-	int val;
-	Node next;
-	Node random;
-
-	public Node(int val) {
-		this.val = val;
+		public Node(int val) {
+			this.val = val;
+		}
 	}
-
 }

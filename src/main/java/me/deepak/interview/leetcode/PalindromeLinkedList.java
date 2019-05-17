@@ -5,7 +5,6 @@ import me.deepak.interview.leetcode.beans.ListNode;
 /*
  * https://leetcode.com/problems/palindrome-linked-list/
 */
-
 public class PalindromeLinkedList {
 
 	public boolean isPalindrome(ListNode head) {
