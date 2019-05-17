@@ -3,7 +3,6 @@ package me.deepak.interview.leetcode;
 /*
  * https://leetcode.com/problems/number-of-islands/
 */
-
 public class NumberOfIslands {
 
 	public int numIslands(char[][] grid) {
