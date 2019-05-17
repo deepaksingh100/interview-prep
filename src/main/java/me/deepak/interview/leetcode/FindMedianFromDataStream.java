@@ -6,7 +6,6 @@ import java.util.PriorityQueue;
 /*
  * https://leetcode.com/problems/find-median-from-data-stream/
 */
-
 public class FindMedianFromDataStream {
 
 	PriorityQueue<Integer> minHeap = null;
