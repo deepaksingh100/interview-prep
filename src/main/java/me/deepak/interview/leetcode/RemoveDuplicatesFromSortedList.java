@@ -5,7 +5,6 @@ import me.deepak.interview.leetcode.beans.ListNode;
 /*
  * https://leetcode.com/problems/remove-duplicates-from-sorted-list/
 */
-
 public class RemoveDuplicatesFromSortedList {
 
 	public ListNode deleteDuplicates(ListNode head) {
