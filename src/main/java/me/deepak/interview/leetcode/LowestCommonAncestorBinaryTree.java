@@ -5,7 +5,6 @@ import me.deepak.interview.leetcode.beans.TreeNode;
 /*
  * https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
 */
-
 public class LowestCommonAncestorBinaryTree {
 
 	public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
