@@ -16,13 +16,16 @@ public class LongestCommonSubsequence {
 		for (int i = 0; i <= length1; i++) {
 			for (int j = 0; j <= length2; j++) {
 				if (i == 0 || j == 0) {
+
 					// If any of the string is empty, answer is 0
 					table[i][j] = 0;
 				} else if (sequence1[i - 1] == sequence2[j - 1]) {
+
 					// If sequence1[i - 1] == sequence2[j - 1], we add 1 to the answer and move 1
 					// index backward in both string
 					table[i][j] = 1 + table[i - 1][j - 1];
 				} else {
+
 					// If sequence1[i - 1] != sequence2[j - 1], answer will be max of (1) move 1
 					// index backward in sequence1 (2) move 1 index backward in sequence2
 					table[i][j] = Math.max(table[i - 1][j], table[i][j - 1]);
@@ -50,13 +53,16 @@ public class LongestCommonSubsequence {
 			currentRow = i & 1; // odd even style
 			for (int j = 0; j <= length2; j++) {
 				if (i == 0 || j == 0) {
+
 					// If any of the string is empty, answer is 0
 					table[currentRow][j] = 0;
 				} else if (sequence1[i - 1] == sequence2[j - 1]) {
+
 					// If sequence1[i - 1] == sequence2[j - 1], we add 1 to the answer and move 1
 					// index backward in both string
 					table[currentRow][j] = 1 + table[1 - currentRow][j - 1];
 				} else {
+
 					// If sequence1[i - 1] != sequence2[j - 1], answer will be max of (1) move 1
 					// index backward in sequence1 (2) move 1 index backward in sequence2
 					table[currentRow][j] = Math.max(table[1 - currentRow][j], table[currentRow][j - 1]);
@@ -77,13 +83,16 @@ public class LongestCommonSubsequence {
 		for (int i = 0; i <= length1; i++) {
 			for (int j = 0; j <= length2; j++) {
 				if (i == 0 || j == 0) {
+
 					// If any of the string is empty, answer is 0
 					table[i][j] = 0;
 				} else if (sequence1[i - 1] == sequence2[j - 1]) {
+
 					// If sequence1[i - 1] == sequence2[j - 1], we add 1 to the answer and move 1
 					// index backward in both string
 					table[i][j] = 1 + table[i - 1][j - 1];
 				} else {
+
 					// If sequence1[i - 1] != sequence2[j - 1], answer will be max of (1) move 1
 					// index backward in sequence1 (2) move 1 index backward in sequence2
 					table[i][j] = Math.max(table[i - 1][j], table[i][j - 1]);
@@ -96,6 +105,7 @@ public class LongestCommonSubsequence {
 		int j = length2;
 		while (i > 0 && j > 0) {
 			if (sequence1[i - 1] == sequence2[j - 1]) {
+
 				/*
 				 * If sequence1[i - 1] == sequence2[j - 1], we add current char (sequence1[i -
 				 * 1]) to answer and move 1 index backward in both string
@@ -106,6 +116,7 @@ public class LongestCommonSubsequence {
 				i--;
 				j--;
 			} else {
+
 				/*
 				 * max(table[i - 1][j], table[i][j - 1]) was filled while filling the table, So
 				 * if table[i - 1][j] > table[i][j - 1] then move 1 index backward in sequence1
