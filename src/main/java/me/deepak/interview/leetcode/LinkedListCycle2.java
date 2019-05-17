@@ -5,7 +5,6 @@ import me.deepak.interview.leetcode.beans.ListNode;
 /*
  * https://leetcode.com/problems/linked-list-cycle-ii/
 */
-
 public class LinkedListCycle2 {
 
 	public ListNode detectCycle(ListNode head) {

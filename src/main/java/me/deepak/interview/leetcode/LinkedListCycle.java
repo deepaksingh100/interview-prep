@@ -5,7 +5,6 @@ import me.deepak.interview.leetcode.beans.ListNode;
 /*
  * https://leetcode.com/problems/linked-list-cycle/
 */
-
 public class LinkedListCycle {
 
 	public boolean hasCycle(ListNode head) {

@@ -4,9 +4,8 @@ import java.util.PriorityQueue;
 
 /*
  * https://leetcode.com/problems/kth-largest-element-in-a-stream/
- * 
  * https://www.geeksforgeeks.org/kth-largest-element-in-a-stream/
-*/
+ */
 public class KthLargestElementInStream {
 
 	// min heap

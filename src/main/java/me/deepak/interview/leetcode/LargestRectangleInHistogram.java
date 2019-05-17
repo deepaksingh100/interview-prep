@@ -1,16 +1,17 @@
 package me.deepak.interview.leetcode;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
 
 /*
  * https://leetcode.com/problems/largest-rectangle-in-histogram/
 */
 
+//TODO this problem
 public class LargestRectangleInHistogram {
 
 	public int largestRectangleArea(int[] heights) {
 		int len = heights.length;
-		Stack<Integer> stack = new Stack<>();
+		ArrayDeque<Integer> stack = new ArrayDeque<>();
 		int maxArea = 0;
 		for (int i = 0; i < len; i++) {
 			while (!stack.isEmpty() && heights[stack.peek()] > heights[i]) {
