@@ -2,8 +2,8 @@ package me.deepak.interview.leetcode;
 
 /*
  * https://leetcode.com/problems/house-robber-ii/
+ * https://www.geeksforgeeks.org/maximum-sum-in-circular-array-such-that-no-two-elements-are-adjacent/
 */
-
 public class HouseRobber2 {
 
 	public int rob(int[] nums) {
