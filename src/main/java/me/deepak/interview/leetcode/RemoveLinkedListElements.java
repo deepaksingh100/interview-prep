@@ -5,7 +5,6 @@ import me.deepak.interview.leetcode.beans.ListNode;
 /*
  * https://leetcode.com/problems/remove-linked-list-elements/
 */
-
 public class RemoveLinkedListElements {
 
 	public ListNode removeElements(ListNode head, int val) {
@@ -18,11 +17,10 @@ public class RemoveLinkedListElements {
 				} else {
 					head = curr.next;
 				}
-				curr = curr.next;
 			} else {
 				prev = curr;
-				curr = curr.next;
 			}
+			curr = curr.next;
 		}
 		return head;
 	}

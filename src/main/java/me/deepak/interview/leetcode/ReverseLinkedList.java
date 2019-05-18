@@ -5,7 +5,6 @@ import me.deepak.interview.leetcode.beans.ListNode;
 /*
  * https://leetcode.com/problems/reverse-linked-list/
 */
-
 public class ReverseLinkedList {
 
 	public ListNode reverseList(ListNode head) {

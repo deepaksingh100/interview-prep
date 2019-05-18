@@ -5,7 +5,6 @@ import me.deepak.interview.leetcode.beans.ListNode;
 /*
  * https://leetcode.com/problems/reverse-nodes-in-k-group/
 */
-
 public class ReverseNodesInKGroup {
 
 	public ListNode reverseKGroup(ListNode head, int k) {
@@ -13,6 +12,8 @@ public class ReverseNodesInKGroup {
 		ListNode prev = null;
 		ListNode next = null;
 		int c = 0;
+
+		// reverse k nodes
 		while (c < k && curr != null) {
 			next = curr.next;
 			curr.next = prev;
@@ -20,9 +21,13 @@ public class ReverseNodesInKGroup {
 			curr = next;
 			c++;
 		}
+
+		// reverse next group recursively
 		if (next != null) {
 			head.next = reverseKGroup(next, k);
 		}
+
+		// reverse last group, as it was also reversed
 		if (c < k) {
 			curr = prev;
 			prev = null;
