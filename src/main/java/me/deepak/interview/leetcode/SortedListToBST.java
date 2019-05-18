@@ -5,11 +5,11 @@ import me.deepak.interview.leetcode.beans.TreeNode;
 
 /*
  * https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/
+ * https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/solution/
 */
-
 public class SortedListToBST {
 
-	private static ListNode node;
+	private ListNode node;
 
 	public TreeNode sortedListToBST(ListNode head) {
 		node = head;
@@ -24,7 +24,7 @@ public class SortedListToBST {
 		TreeNode root = new TreeNode(node.val);
 		root.left = left;
 		node = node.next;
-		root.right = sortedListToBST(size - size / 2 - 1);
+		root.right = sortedListToBST(size / 2 - 1);
 		return root;
 	}
 

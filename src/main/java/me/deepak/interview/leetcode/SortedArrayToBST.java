@@ -5,7 +5,6 @@ import me.deepak.interview.leetcode.beans.TreeNode;
 /*
  * https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/
 */
-
 public class SortedArrayToBST {
 	
 	public TreeNode sortedArrayToBST(int[] nums) {
