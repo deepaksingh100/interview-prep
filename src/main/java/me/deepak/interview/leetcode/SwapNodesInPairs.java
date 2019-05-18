@@ -5,7 +5,6 @@ import me.deepak.interview.leetcode.beans.ListNode;
 /*
  * https://leetcode.com/problems/swap-nodes-in-pairs/
 */
-
 public class SwapNodesInPairs {
 
 	public ListNode swapPairs(ListNode head) {
