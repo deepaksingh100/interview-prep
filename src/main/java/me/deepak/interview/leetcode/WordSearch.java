@@ -3,7 +3,6 @@ package me.deepak.interview.leetcode;
 /*
  * https://leetcode.com/problems/word-search/
 */
-
 public class WordSearch {
 
 	public boolean exist(char[][] board, String word) {

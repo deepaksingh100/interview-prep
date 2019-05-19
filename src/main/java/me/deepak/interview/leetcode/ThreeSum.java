@@ -1,35 +1,49 @@
 package me.deepak.interview.leetcode;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
 
 /*
  * https://leetcode.com/problems/3sum/
+ * https://leetcode.com/problems/3sum/discuss/7399/Easiest-Java-Solution
 */
-
 public class ThreeSum {
 
 	public List<List<Integer>> threeSum(int[] a) {
-		int n = a.length;
-		Set<List<Integer>> triplets = new HashSet<>();
-		for (int i = 0; i < n - 2; i++) {
-			Set<Integer> set = new HashSet<>();
-			int currentSum = -a[i];
-			for (int j = i + 1; j < n; j++) {
-				if (set.contains(currentSum - a[j])) {
-					List<Integer> triplet = new ArrayList<>(3);
-					triplet.add(a[i]);
-					triplet.add(a[j]);
-					triplet.add(currentSum - a[j]);
-					triplet.sort(null);
-					triplets.add(triplet);
+		Arrays.sort(a);
+		int length = a.length;
+		List<List<Integer>> triplets = new ArrayList<>();
+		for (int i = 0; i < length - 2; i++) {
+
+			if (i > 0 && a[i] == a[i - 1]) { // skip same result
+				continue;
+			}
+
+			int target = -a[i];
+			int start = i + 1;
+			int end = length - 1;
+
+			while (start < end) {
+				int sum = a[start] + a[end];
+				if (sum < target) {
+					start++;
+				} else if (sum > target) {
+					end--;
+				} else {
+					triplets.add(Arrays.asList(a[start], a[end], a[i]));
+					start++;
+					end--;
+					while (start < end && a[start] == a[start - 1]) {
+						start++;
+					} // skip same result
+					while (start < end && a[end] == a[end + 1]) {
+						end--;
+					} // skip same result
 				}
-				set.add(a[j]);
 			}
 		}
-		return new ArrayList<>(triplets);
+		return triplets;
 	}
 
 }

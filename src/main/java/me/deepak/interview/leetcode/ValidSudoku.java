@@ -3,12 +3,14 @@ package me.deepak.interview.leetcode;
 /*
  * https://leetcode.com/problems/valid-sudoku/
 */
-
 public class ValidSudoku {
 
 	public boolean isValidSudoku(char[][] board) {
-		if (board == null || board.length != 9 || board[0].length != 9)
+
+		if (board == null || board.length != 9 || board[0].length != 9) {
 			return false;
+		}
+
 		// check each row
 		for (int i = 0; i < 9; i++) {
 			boolean[] m = new boolean[9];

@@ -3,7 +3,6 @@ package me.deepak.interview.leetcode;
 /*
  * https://leetcode.com/problems/trapping-rain-water/
 */
-
 public class TrappingRainWater {
 
 	public int trap(int[] height) {

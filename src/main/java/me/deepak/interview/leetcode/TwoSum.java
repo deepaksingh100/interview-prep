@@ -1,28 +1,24 @@
 package me.deepak.interview.leetcode;
 
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /*
  * https://leetcode.com/problems/two-sum/
+ * https://leetcode.com/problems/two-sum/solution/
 */
-
 public class TwoSum {
 
 	public int[] twoSum(int[] nums, int target) {
-		int[] results = new int[2];
-		int len = nums.length;
-		for (int i = 0; i < len; i++) {
-			for (int j = 0; j < len; j++) {
-				if (i != j) {
-					if (nums[i] + nums[j] == target) {
-						results[0] = i;
-						results[1] = j;
-					}
-				}
+		Map<Integer, Integer> map = new HashMap<>();
+		for (int i = 0; i < nums.length; i++) {
+			int complement = target - nums[i];
+			if (map.containsKey(complement)) {
+				return new int[] { map.get(complement), i };
 			}
+			map.put(nums[i], i);
 		}
-		Arrays.sort(results);
-		return results;
+		return new int[0];
 	}
 
 }

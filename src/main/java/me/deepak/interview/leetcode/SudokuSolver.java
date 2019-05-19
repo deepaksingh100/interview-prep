@@ -3,7 +3,6 @@ package me.deepak.interview.leetcode;
 /*
  * https://leetcode.com/problems/sudoku-solver/
 */
-
 public class SudokuSolver {
 
 	public void solveSudoku(char[][] board) {
