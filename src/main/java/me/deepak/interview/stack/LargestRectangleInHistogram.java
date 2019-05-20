@@ -1,4 +1,4 @@
-package me.deepak.interview.leetcode;
+package me.deepak.interview.stack;
 
 import java.util.ArrayDeque;
 
