@@ -2,6 +2,8 @@ package me.deepak.interview.leetcode;
 
 /*
  * https://leetcode.com/problems/trapping-rain-water/
+ * https://leetcode.com/articles/trapping-rain-water/
+ * https://youtu.be/HmBbcDiJapY
 */
 public class TrappingRainWater {
 
@@ -10,17 +12,26 @@ public class TrappingRainWater {
 		if (height == null || height.length == 0) {
 			return totalAmount;
 		}
-		int n = height.length;
-		int[] leftHighest = new int[n + 1];
-		for (int i = 0; i < n; i++) {
-			leftHighest[i + 1] = Math.max(leftHighest[i], height[i]);
-		}
-		int rightHighest = 0;
-		for (int i = n - 1; i >= 0; i--) {
-			rightHighest = Math.max(rightHighest, height[i]);
-			totalAmount += Math.min(leftHighest[i], rightHighest) > height[i]
-					? Math.min(leftHighest[i], rightHighest) - height[i]
-					: 0;
+		int left = 0;
+		int right = height.length - 1;
+		int leftMax = 0;
+		int rightMax = 0;
+		while (left < right) {
+			if (height[left] < height[right]) {
+				if (height[left] >= leftMax) {
+					leftMax = height[left];
+				} else {
+					totalAmount += leftMax - height[left];
+				}
+				left++;
+			} else {
+				if (height[right] >= rightMax) {
+					rightMax = height[right];
+				} else {
+					totalAmount += rightMax - height[right];
+				}
+				right--;
+			}
 		}
 		return totalAmount;
 	}
