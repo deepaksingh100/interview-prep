@@ -6,8 +6,6 @@ import java.util.Deque;
 /*
  * https://leetcode.com/problems/sliding-window-maximum/
 */
-
-//TODO this problem
 public class SlidingWindowMaximum {
 
 	public int[] maxSlidingWindow(int[] a, int k) {

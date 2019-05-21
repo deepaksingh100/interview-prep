@@ -1,6 +1,7 @@
 package me.deepak.interview.stack;
 
 import java.util.ArrayDeque;
+import java.util.Deque;
 
 /*
  * https://leetcode.com/problems/trapping-rain-water/
@@ -14,7 +15,7 @@ public class TrappingRainWater {
 		if (height == null || height.length == 0) {
 			return totalAmount;
 		}
-		ArrayDeque<Integer> stack = new ArrayDeque<>();
+		Deque<Integer> stack = new ArrayDeque<>();
 		int current = 0;
 		int n = height.length;
 		while (current < n) {

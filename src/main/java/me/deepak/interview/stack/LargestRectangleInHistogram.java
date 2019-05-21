@@ -1,6 +1,7 @@
 package me.deepak.interview.stack;
 
 import java.util.ArrayDeque;
+import java.util.Deque;
 
 /*
  * https://leetcode.com/problems/largest-rectangle-in-histogram/
@@ -17,7 +18,7 @@ public class LargestRectangleInHistogram {
 		 * Create an empty stack. The stack holds indexes of heights[] array. The bars
 		 * stored in stack are always in increasing order of their heights.
 		 */
-		ArrayDeque<Integer> stack = new ArrayDeque<>();
+		Deque<Integer> stack = new ArrayDeque<>();
 
 		int maxArea = 0;
 
