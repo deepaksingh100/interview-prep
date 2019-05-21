@@ -1,4 +1,4 @@
-package me.deepak.interview.leetcode;
+package me.deepak.interview.queue;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -46,7 +46,7 @@ public class SlidingWindowMaximum {
 				deque.removeLast();
 			}
 
-			// Remove the element which are out of this window
+			// Remove the elements which are out of this window
 			if (!deque.isEmpty() && deque.peekFirst() == i - k) {
 				deque.removeFirst();
 			}
