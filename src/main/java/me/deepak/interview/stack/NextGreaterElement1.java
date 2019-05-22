@@ -15,6 +15,8 @@ public class NextGreaterElement1 {
 
 		// map of x to next greater element of x
 		Map<Integer, Integer> map = new HashMap<>();
+
+		// decreasing stack
 		Deque<Integer> stack = new ArrayDeque<>();
 		for (int num : nums2) {
 

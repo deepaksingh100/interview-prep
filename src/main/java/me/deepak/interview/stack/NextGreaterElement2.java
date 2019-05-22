@@ -12,8 +12,12 @@ public class NextGreaterElement2 {
 	public int[] nextGreaterElements(int[] nums) {
 		int length = nums.length;
 		int[] result = new int[length];
+
 		Arrays.fill(result, -1);
+
+		// decreasing stack
 		Deque<Integer> stack = new ArrayDeque<>();
+		
 		for (int i = 0; i < 2 * length - 1; i++) {
 			int j = i % length;
 
