@@ -1,14 +1,15 @@
 package me.deepak.interview.leetcode;
 
 import java.util.ArrayDeque;
+import java.util.Deque;
 
 /*
  * https://leetcode.com/problems/implement-queue-using-stacks/
 */
 public class ImplementQueueUsingStacks {
 
-	private final ArrayDeque<Integer> stack1;
-	private final ArrayDeque<Integer> stack2;
+	private final Deque<Integer> stack1;
+	private final Deque<Integer> stack2;
 
 	/** Initialize your data structure here. */
 	public ImplementQueueUsingStacks() {

@@ -1,6 +1,7 @@
 package me.deepak.interview.stack;
 
 import java.util.ArrayDeque;
+import java.util.Deque;
 
 /*
  * https://www.geeksforgeeks.org/queue-using-stacks/
@@ -10,8 +11,8 @@ public class Queue {
 	private Queue() {
 	}
 
-	private static final ArrayDeque<Integer> STACK1 = new ArrayDeque<>();
-	private static final ArrayDeque<Integer> STACK2 = new ArrayDeque<>();
+	private static final Deque<Integer> STACK1 = new ArrayDeque<>();
+	private static final Deque<Integer> STACK2 = new ArrayDeque<>();
 
 	public static void enqueue(int item) {
 		STACK1.push(item);
