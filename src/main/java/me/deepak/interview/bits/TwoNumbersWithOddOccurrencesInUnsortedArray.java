@@ -15,7 +15,7 @@ public class TwoNumbersWithOddOccurrencesInUnsortedArray {
 	 * the array length is at least 2 and there are exactly two numbers occurring
 	 * odd number of times.
 	 */
-	public static int[] printTwoOdd(int[] arr) {
+	public static int[] getOddOccurrences(int[] arr) {
 
 		int length = arr.length;
 

@@ -12,7 +12,7 @@ public class TwoNumbersWithEvenOccurrencesInUnsortedArray {
 	/*
 	 * Prints two numbers that occur even number of times.
 	 */
-	public static int[] printTwoOdd(int[] arr) {
+	public static int[] getEvenOccurrences(int[] arr) {
 
 		int length = arr.length;
 
