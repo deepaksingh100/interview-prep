@@ -16,7 +16,7 @@ public class Ancestors {
 	 * If target is present in tree, then prints the ancestors and returns true,
 	 * otherwise returns false.
 	 */
-	public static boolean getAncestors(Node root, int key, List<Integer> ancestors) {
+	public static boolean ancestors(Node root, int key, List<Integer> ancestors) {
 
 		// base case
 		if (root == null) {
@@ -31,7 +31,7 @@ public class Ancestors {
 		 * If target is present in either left or right subtree of this node, then print
 		 * this node
 		 */
-		if (getAncestors(root.getLeft(), key, ancestors) || getAncestors(root.getRight(), key, ancestors)) {
+		if (ancestors(root.getLeft(), key, ancestors) || ancestors(root.getRight(), key, ancestors)) {
 			ancestors.add(root.getKey());
 			return true;
 		}
