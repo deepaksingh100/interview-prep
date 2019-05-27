@@ -8,7 +8,6 @@ import java.util.List;
  * https://www.geeksforgeeks.org/job-sequencing-problem/
  * https://www.youtube.com/watch?v=zPtI8q9gvX8
 */
-
 public class JobSequencing {
 
 	private JobSequencing() {

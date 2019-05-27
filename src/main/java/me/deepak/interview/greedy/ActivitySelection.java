@@ -22,7 +22,7 @@ public class ActivitySelection {
 			activities[i] = new Activity(i + 1, start[i], end[i]);
 		}
 
-		// sort activities in non-ascending order of end time
+		// sort activities in non-descending order of end time
 		Arrays.sort(activities,
 				(Activity activity1, Activity activity2) -> Integer.compare(activity1.end, activity2.end));
 
