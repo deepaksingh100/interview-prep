@@ -143,12 +143,15 @@ public class Trie {
 		if (node == null) {
 			return false;
 		}
+
+		// recursively call delete() with next index
 		boolean shouldDeleteCurrentNode = delete(node, word, index + 1);
 
 		// if true is returned then delete the mapping of character and trienode
 		// reference from map.
 		if (shouldDeleteCurrentNode) {
 			current.children.remove(ch);
+
 			// return true if no mappings are left in the map.
 			return current.children.isEmpty();
 		}
