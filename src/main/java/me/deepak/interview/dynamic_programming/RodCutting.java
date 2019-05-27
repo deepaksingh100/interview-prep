@@ -17,12 +17,13 @@ public class RodCutting {
 		// revenues[i] represents the max revenue for rod length i
 		int[] revenues = new int[rodLength + 1];
 
-		// max revenue from zero length rod is zero, starting from rod length 1
+		// max revenue from 0 length rod is 0, starting from rod length 1
 		for (int i = 1; i <= rodLength; i++) {
 			int maxRevenue = Integer.MIN_VALUE;
 
 			// cutting rod of length i into j and i - j - 1 (0 -> n - 1)
 			for (int j = 0; j < i; j++) {
+
 				// cutRod(n) = for all i in {0, 1 .. n-1} max(price[i] + cutRod(n-i-1))
 				maxRevenue = Math.max(maxRevenue, prices[j] + revenues[i - j - 1]);
 			}
@@ -55,6 +56,7 @@ public class RodCutting {
 			}
 			revenues[i] = maxRevenue;
 		}
+		
 		List<Integer> cutRod = new ArrayList<>();
 		while (rodLength > 0) {
 
