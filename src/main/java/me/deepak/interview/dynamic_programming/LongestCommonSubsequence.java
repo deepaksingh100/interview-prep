@@ -8,7 +8,6 @@ public class LongestCommonSubsequence {
 	/*
 	 * https://www.geeksforgeeks.org/longest-common-subsequence-dp-4/
 	 */
-
 	public static int lcsLength(char[] sequence1, char[] sequence2) {
 		int length1 = sequence1.length;
 		int length2 = sequence2.length;
@@ -38,7 +37,6 @@ public class LongestCommonSubsequence {
 	/*
 	 * https://www.geeksforgeeks.org/space-optimized-solution-lcs/
 	 */
-
 	public static int lcsLengthSpaceOptimized(char[] sequence1, char[] sequence2) {
 		int length1 = sequence1.length;
 		int length2 = sequence2.length;
@@ -75,7 +73,6 @@ public class LongestCommonSubsequence {
 	/*
 	 * https://www.geeksforgeeks.org/printing-longest-common-subsequence/
 	 */
-
 	public static int[] lcs(char[] sequence1, char[] sequence2) {
 		int length1 = sequence1.length;
 		int length2 = sequence2.length;
@@ -111,9 +108,7 @@ public class LongestCommonSubsequence {
 				 * 1]) to answer and move 1 index backward in both string
 				 * 
 				 */
-				lcs[lcsLength - 1] = sequence1[i - 1];
-				lcsLength--;
-				i--;
+				lcs[--lcsLength] = sequence1[--i];
 				j--;
 			} else {
 
