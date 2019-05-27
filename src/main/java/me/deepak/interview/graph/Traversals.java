@@ -1,6 +1,7 @@
 package me.deepak.interview.graph;
 
 import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Queue;
 
 public class Traversals {
@@ -75,7 +76,7 @@ public class Traversals {
 		boolean[] visited = new boolean[graph.getVertexCount()];
 
 		// create a stack for DFS
-		ArrayDeque<Integer> stack = new ArrayDeque<>();
+		Deque<Integer> stack = new ArrayDeque<>();
 
 		// push the current source node
 		stack.push(src);
