@@ -17,19 +17,20 @@ public class Knapsack {
 		for (int i = 0; i <= length; i++) {
 			for (int j = 0; j <= capacity; j++) {
 				if (i == 0 || j == 0) {
+
 					// If values[] is empty OR capacity is zero, answer is zero
 					table[i][j] = 0;
 				} else if (j < weights[i - 1]) {
+
 					/*
 					 * If capacity j is less than current weight weights[i - 1], We can't include
 					 * this weight in our optimal solution
-					 * 
 					 */
 					table[i][j] = table[i - 1][j];
 				} else {
+
 					/*
 					 * Return the maximum of two cases: (1) (i - 1)th item included (2) not included
-					 * 
 					 */
 					table[i][j] = Math.max(values[i - 1] + table[i - 1][j - weights[i - 1]], table[i - 1][j]);
 				}
@@ -47,28 +48,31 @@ public class Knapsack {
 		for (int i = 0; i <= length; i++) {
 			for (int j = 0; j <= capacity; j++) {
 				if (i == 0 || j == 0) {
+
 					// If values[] is empty OR capacity is zero, answer is zero
 					table[i][j] = 0;
 				} else if (j < weights[i - 1]) {
+
 					/*
 					 * If capacity j is less than current weight weights[i - 1], We can't include
 					 * this weight in our optimal solution
-					 * 
 					 */
 					table[i][j] = table[i - 1][j];
 				} else {
+
 					/*
 					 * Return the maximum of two cases: (1) (i - 1)th item included (2) not included
-					 * 
 					 */
 					table[i][j] = Math.max(values[i - 1] + table[i - 1][j - weights[i - 1]], table[i - 1][j]);
 				}
 			}
 		}
+
 		List<Integer> itemsInKnapsack = new ArrayList<>();
 		int i = length;
 		int j = capacity;
 		while (i > 0 && j > 0) {
+
 			/*
 			 * either the result comes from the top (table[i - 1][j]) or from (values[i - 1]
 			 * + table[i - 1][j - weights[i - 1]]) as in Knapsack table. If it comes from
@@ -76,7 +80,6 @@ public class Knapsack {
 			 * 
 			 * http://cse.unl.edu/~goddard/Courses/CSCE310J/Lectures/Lecture8-
 			 * DynamicProgramming.pdf
-			 * 
 			 */
 			if (table[i][j] != table[i - 1][j]) {
 				itemsInKnapsack.add(weights[i - 1]);
@@ -90,15 +93,14 @@ public class Knapsack {
 	/*
 	 * https://www.geeksforgeeks.org/unbounded-knapsack-repetition-items-allowed/
 	 */
-
-	public static int unboundedKnapsack(int[] values, int[] weights, int capacity) {
+	public static int knapsackUnbounded(int[] values, int[] weights, int capacity) {
 
 		// table[i] is going to store maximum value with knapsack capacity i.
 		int[] table = new int[capacity + 1];
+
 		/*
 		 * table[i] = max(table[i], table[i - weights[j]] + values[j] where j varies
 		 * from 0 to n-1 such that: weights[j] <= i
-		 * 
 		 */
 		for (int i = 0; i <= capacity; i++) {
 			for (int j = 0; j < weights.length; j++) {
