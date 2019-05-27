@@ -2,6 +2,7 @@ package me.deepak.interview.leetcode;
 
 /*
  * https://leetcode.com/problems/delete-operation-for-two-strings/
+ * https://leetcode.com/articles/delete-operation-for-two-strings/
 */
 public class DeleteOperationForTwoStrings {
 
