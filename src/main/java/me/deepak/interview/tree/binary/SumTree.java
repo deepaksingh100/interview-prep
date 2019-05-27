@@ -4,6 +4,7 @@ import me.deepak.interview.tree.binary.beans.Node;
 
 /*
  * https://www.geeksforgeeks.org/check-if-a-given-binary-tree-is-sumtree/
+ * https://www.geeksforgeeks.org/convert-a-given-tree-to-sum-tree/
 */
 public class SumTree {
 
@@ -78,6 +79,27 @@ public class SumTree {
 
 		return sum(root.getLeft()) + root.getKey() + sum(root.getRight());
 
+	}
+
+	// convert a given tree to a tree where every node contains sum of
+	// values of nodes in left and right subtrees in the original tree
+	public static int toSumTree(Node root) {
+
+		// base case
+		if (root == null) {
+			return 0;
+		}
+
+		// store the old value
+		int oldKey = root.getKey();
+
+		// recursively call for left and right subtrees and store the sum
+		// as new value of this node
+		root.setKey(toSumTree(root.getLeft()) + toSumTree(root.getRight()));
+
+		// return the sum of values of nodes in left and right subtrees
+		// and old value of this node
+		return oldKey + root.getKey();
 	}
 
 }
