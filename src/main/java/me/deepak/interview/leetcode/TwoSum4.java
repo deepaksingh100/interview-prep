@@ -7,6 +7,8 @@ import me.deepak.interview.leetcode.beans.TreeNode;
 
 /*
  * https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+ * https://leetcode.com/articles/two-sum-iv/
+ * https://www.geeksforgeeks.org/find-a-pair-with-given-sum-in-bst/
 */
 public class TwoSum4 {
 
