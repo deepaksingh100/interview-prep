@@ -1,5 +1,7 @@
 package me.deepak.interview.tree.binary;
 
+import static me.deepak.interview.tree.binary.Leaf.isLeaf;
+
 import me.deepak.interview.tree.binary.beans.Node;
 
 /*
@@ -66,10 +68,6 @@ public class SumTree {
 		}
 		return false;
 
-	}
-
-	private static boolean isLeaf(Node root) {
-		return root.getLeft() == null && root.getRight() == null;
 	}
 
 	private static int sum(Node root) {
