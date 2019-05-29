@@ -1,4 +1,4 @@
-package me.deepak.interview.leetcode;
+package me.deepak.interview.tree.binary;
 
 import me.deepak.interview.leetcode.beans.TreeNode;
 
@@ -6,7 +6,7 @@ import me.deepak.interview.leetcode.beans.TreeNode;
  * https://leetcode.com/problems/binary-tree-maximum-path-sum/
  * https://www.geeksforgeeks.org/find-maximum-path-sum-in-a-binary-tree/
 */
-public class BinaryTreeMaximumPathSum {
+public class MaximumPathSum {
 
 	private int result = Integer.MIN_VALUE;
 
