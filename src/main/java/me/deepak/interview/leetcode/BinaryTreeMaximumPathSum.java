@@ -5,6 +5,7 @@ import me.deepak.interview.leetcode.beans.TreeNode;
 /*
  * https://leetcode.com/problems/binary-tree-maximum-path-sum/
  * https://www.geeksforgeeks.org/find-maximum-path-sum-in-a-binary-tree/
+ * https://leetcode.com/problems/binary-tree-maximum-path-sum/discuss/39775/Accepted-short-solution-in-Java
 */
 public class BinaryTreeMaximumPathSum {
 
