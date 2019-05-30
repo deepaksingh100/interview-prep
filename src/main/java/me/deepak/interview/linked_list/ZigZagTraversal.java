@@ -23,7 +23,7 @@ public class ZigZagTraversal {
 
 		Node current = head;
 
-		// islt = true means current.data < current.next.adata
+		// islt = true means current.data < current.next.data
 		boolean islt = true;
 
 		while (current != null && current.getNext() != null) {
