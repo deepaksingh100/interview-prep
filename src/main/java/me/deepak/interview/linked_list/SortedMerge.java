@@ -88,4 +88,56 @@ public class SortedMerge {
 		headB.setNext(mergeTwoSortedListsRecursive(headA, headB.getNext()));
 		return headB;
 	}
+
+	public static Node mergeTwoSortedListsReverse(Node headA, Node headB) {
+		if (headA == null) {
+
+			// if first list is empty return second's head
+			return Reverse.reverse(headB);
+		}
+		if (headB == null) {
+
+			// if second list is empty return first's head
+			return Reverse.reverse(headA);
+		}
+
+		// head of final list
+		Node finalHead = null;
+		Node currentA = headA;
+		Node currentB = headB;
+
+		Node currentFinal = null;
+
+		// while both lists have nodes
+		while (currentA != null && currentB != null) {
+			if (currentA.getData() < currentB.getData()) {
+				Node temp = currentA.getNext();
+				currentA.setNext(currentFinal);
+				currentFinal = currentA;
+				currentA = temp;
+
+			} else {
+				Node temp = currentB.getNext();
+				currentB.setNext(currentFinal);
+				currentFinal = currentB;
+				currentB = temp;
+
+			}
+		}
+
+		if (currentA != null) {
+
+			// if first list was long
+			Node temp = currentA;
+			finalHead = Reverse.reverse(currentA);
+			temp.setNext(currentFinal);
+		} else {
+
+			// if second list was long
+			Node temp = currentB;
+			finalHead = Reverse.reverse(currentB);
+			temp.setNext(currentFinal);
+		}
+		return finalHead;
+	}
 }
