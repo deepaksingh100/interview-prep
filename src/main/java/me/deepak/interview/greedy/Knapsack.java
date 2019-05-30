@@ -23,7 +23,7 @@ public class Knapsack {
 		}
 
 		// sort items in non-ascending order of cost
-		Arrays.sort(items, (item1, item2) -> Double.compare(item2.cost, item1.cost));
+		Arrays.sort(items, (item1, item2) -> Double.compare(item2.costPerUnit, item1.costPerUnit));
 
 		double totalValue = 0;
 		for (Item item : items) {
@@ -38,7 +38,7 @@ public class Knapsack {
 				// if current item's cost is greater than remaining capacity, add possible
 				// fraction to answer means add it's cost (per unit weight) multiplied by
 				// remaining capacity to total value. Then break.
-				totalValue += item.cost * capacity;
+				totalValue += item.costPerUnit * capacity;
 				break;
 			}
 		}
@@ -57,7 +57,7 @@ public class Knapsack {
 		}
 
 		// sort items in non-ascending order of cost
-		Arrays.sort(items, (item1, item2) -> Float.compare(item2.cost, item1.cost));
+		Arrays.sort(items, (item1, item2) -> Float.compare(item2.costPerUnit, item1.costPerUnit));
 
 		// Holds optimal sequence, which gains optimal solution
 		List<Item> sequence = new ArrayList<>();
@@ -75,7 +75,7 @@ public class Knapsack {
 				// fraction to item's value means set it's cost (per unit weight) multiplied by
 				// remaining capacity to item's value. Then break.
 				// update item value to value which is possible in knapsack & weight as well
-				item.value = item.cost * capacity;
+				item.value = item.costPerUnit * capacity;
 				item.weight = capacity;
 				sequence.add(item);
 				break;
@@ -90,13 +90,13 @@ public class Knapsack {
 		int weight;
 
 		// per unit cost
-		float cost;
+		float costPerUnit;
 
 		private Item(int id, float value, int weight) {
 			this.id = id;
 			this.value = value;
 			this.weight = weight;
-			this.cost = value / weight;
+			this.costPerUnit = value / weight;
 		}
 	}
 }

@@ -35,7 +35,7 @@ public class SubsetSum {
 					table[i][j] = table[i - 1][j];
 				} else {
 					table[i][j] = table[i - 1][j] // Exclude the last element, recur for n = n - 1.
-							|| table[i - 1][j - set[i - 1]]// Include the last element, recur for n = n - 1, sum = sum –
+							|| table[i - 1][j - set[i - 1]]// Include the last element, recur for n = n - 1, sum = sum -
 															// set[n - 1]
 					;
 				}
