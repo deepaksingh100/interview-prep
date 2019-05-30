@@ -101,11 +101,8 @@ public class SortedMerge {
 			return Reverse.reverse(headA);
 		}
 
-		// head of final list
-		Node finalHead = null;
 		Node currentA = headA;
 		Node currentB = headB;
-
 		Node currentFinal = null;
 
 		// while both lists have nodes
@@ -124,6 +121,9 @@ public class SortedMerge {
 
 			}
 		}
+
+		// head of final list
+		Node finalHead = null;
 
 		if (currentA != null) {
 
