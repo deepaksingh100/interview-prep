@@ -58,7 +58,8 @@ public class MatrixChainMultiplication {
 
 		/*
 		 * table[i,j] = Minimum number of scalar multiplications needed to compute the
-		 * matrix A[i]A[i+1]...A[j] = A[i..j] where dimension of A[i] is p[i-1] x p[i]
+		 * matrix A[i]A[i+1]...A[j] = A[i..j] where dimension of A[i] is dimensions[i-1]
+		 * x dimensions[i]
 		 */
 
 		for (int l = 2; l <= length; l++) { // l is chain length
