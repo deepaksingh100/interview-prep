@@ -6,12 +6,33 @@ import java.util.Queue;
 import me.deepak.interview.tree.binary.beans.Node;
 
 /*
- * https://www.geeksforgeeks.org/write-an-efficient-c-function-to-convert-a-tree-into-its-mirror-tree/
- * https://www.geeksforgeeks.org/create-a-mirror-tree-from-the-given-binary-tree/
+ * https://www.geeksforgeeks.org/check-if-two-trees-are-mirror/
+ * https://www.geeksforgeeks.org/write-an-efficient-c-function-to-convert-root1-tree-into-its-mirror-tree/
+ * https://www.geeksforgeeks.org/create-root1-mirror-tree-from-the-given-binary-tree/
 */
 public class Mirror {
 
 	private Mirror() {
+	}
+
+	public static boolean areMirror(Node root1, Node root2) {
+
+		// base case, both empty
+		if (root1 == null && root2 == null) {
+			return true;
+		}
+
+		// only one empty
+		if (root1 == null || root2 == null) {
+			return false;
+		}
+
+		/*
+		 * Both non-empty, compare them recursively Note that in recursive calls, we
+		 * pass left of one tree and right of other tree
+		 */
+		return root1.getKey() == root2.getKey() && areMirror(root1.getLeft(), root2.getRight())
+				&& areMirror(root1.getRight(), root2.getLeft());
 	}
 
 	public static Node mirror(Node root) {
