@@ -26,7 +26,7 @@ public class Cycle {
 	/*
 	 * https://www.geeksforgeeks.org/detect-and-remove-loop-in-a-linked-list/
 	 */
-	public Node detectCycle(Node head) {
+	public static Node detectCycle(Node head) {
 		Node slow = head;
 		Node fast = head;
 		boolean isLoopExists = false;
@@ -47,6 +47,32 @@ public class Cycle {
 			return slow;
 		}
 		return null;
+	}
+
+	/*
+	 * https://www.geeksforgeeks.org/find-length-of-loop-in-linked-list/
+	 */
+	public static int countCycleLength(Node head) {
+		Node slow = head;
+		Node fast = head;
+		while (fast != null && fast.getNext() != null) {
+			slow = slow.getNext();
+			fast = fast.getNext().getNext();
+			if (slow == fast) {
+				return count(slow);
+			}
+		}
+		return 0;
+	}
+
+	private static int count(Node head) {
+		int count = 1;
+		Node temp = head;
+		while (temp.getNext() != head) {
+			count++;
+			temp = temp.getNext();
+		}
+		return count;
 	}
 
 }
