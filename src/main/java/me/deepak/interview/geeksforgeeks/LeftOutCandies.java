@@ -17,7 +17,7 @@ public class LeftOutCandies {
 		// number of candies left for last pass
 		candiesCount = SIGMA_N[studentsCount] % candiesCount;
 
-		// find just smallest candies to be distributed
+		// find just smallest candies to be distributed & subtract from candies count
 		return candiesCount - justSmallest(studentsCount, candiesCount);
 	}
 
