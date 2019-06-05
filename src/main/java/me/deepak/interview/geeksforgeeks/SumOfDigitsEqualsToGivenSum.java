@@ -67,7 +67,8 @@ public class SumOfDigitsEqualsToGivenSum {
 		for (int k = 0; k <= 9; k++) {
 			ans += getCountMemoized(n - 1, sum - k);
 		}
-		return memo[n][sum] = ans;
+		memo[n][sum] = ans;
+		return ans;
 	}
 
 }
