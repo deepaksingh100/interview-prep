@@ -3,7 +3,7 @@ package me.deepak.interview.tree.binary.search;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-import me.deepak.interview.leetcode.beans.TreeNode;
+import me.deepak.interview.tree.binary.beans.Node;
 
 /*
  * https://leetcode.com/problems/kth-smallest-element-in-a-bst/
@@ -11,18 +11,18 @@ import me.deepak.interview.leetcode.beans.TreeNode;
 */
 public class KthSmallestElementInBST {
 
-	public int kthSmallest(TreeNode root, int k) {
-		Deque<TreeNode> stack = new ArrayDeque<>();
+	public int kthSmallest(Node root, int k) {
+		Deque<Node> stack = new ArrayDeque<>();
 		while (root != null || !stack.isEmpty()) {
 			while (root != null) {
 				stack.push(root);
-				root = root.left;
+				root = root.getLeft();
 			}
 			root = stack.pop();
 			if (k-- == 0) {
-				return root.val;
+				return root.getKey();
 			}
-			root = root.right;
+			root = root.getRight();
 		}
 		return -1;
 	}

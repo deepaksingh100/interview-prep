@@ -3,7 +3,7 @@ package me.deepak.interview.tree.binary;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-import me.deepak.interview.leetcode.beans.TreeNode;
+import me.deepak.interview.tree.binary.beans.Node;
 
 /*
  * https://leetcode.com/problems/second-minimum-node-in-a-binary-tree/
@@ -25,14 +25,14 @@ public class SecondMinimumNodeInBinaryTree {
 		}
 	};
 
-	public int findSecondMinimumValue(TreeNode root) {
+	public int findSecondMinimumValue(Node root) {
 		if (root != null) {
-			findSecondMinimumValue(root.left);
-			maxHeap.add(root.val);
+			findSecondMinimumValue(root.getLeft());
+			maxHeap.add(root.getKey());
 			if (maxHeap.size() > 2) {
 				maxHeap.remove();
 			}
-			findSecondMinimumValue(root.right);
+			findSecondMinimumValue(root.getRight());
 		}
 		return maxHeap.size() >= 2 ? maxHeap.peek() : -1;
 	}
