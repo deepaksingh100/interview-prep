@@ -25,17 +25,17 @@ public final class Student {
 
 		// setters
 
-		public Builder setRollNo(int rollNo) {
+		public Builder rollNo(int rollNo) {
 			this.rollNo = rollNo;
 			return this;
 		}
 
-		public Builder setName(String name) {
+		public Builder name(String name) {
 			this.name = name;
 			return this;
 		}
 
-		public Builder setAge(int age) {
+		public Builder age(int age) {
 			this.age = age;
 			return this;
 		}
