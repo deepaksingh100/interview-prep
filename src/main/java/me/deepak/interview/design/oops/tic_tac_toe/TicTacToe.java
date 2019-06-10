@@ -62,8 +62,8 @@ public class TicTacToe {
 			currentPlayer.setRevDigSum(currentPlayer.getRevDigSum() + 1);
 		}
 
-		if (currentPlayer.getRowSum()[row] == n || currentPlayer.getColumnSum()[column] == n
-				|| currentPlayer.getDigSum() == n || currentPlayer.getRevDigSum() == n) {
+		if (rowSum[row] == n || columnSum[column] == n || currentPlayer.getDigSum() == n
+				|| currentPlayer.getRevDigSum() == n) {
 			winner = currentPlayer;
 			return winner;
 		}
