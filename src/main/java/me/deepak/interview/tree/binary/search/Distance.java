@@ -22,9 +22,11 @@ public class Distance {
 			return -1;
 		}
 		if (key < root.getKey()) {
-			return 1 + distanceFrom(root.getLeft(), key);
+			int leftDistance = distanceFrom(root.getLeft(), key);
+			return leftDistance == -1 ? -1 : 1 + leftDistance;
 		} else if (key > root.getKey()) {
-			return 1 + distanceFrom(root.getRight(), key);
+			int rightDistance = distanceFrom(root.getRight(), key);
+			return rightDistance == -1 ? -1 : 1 + rightDistance;
 		}
 		return 0;
 	}
