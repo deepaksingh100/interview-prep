@@ -18,6 +18,9 @@ public class Distance {
 	}
 
 	private static int distanceFrom(Node root, int key) {
+		if (root == null) {
+			return -1;
+		}
 		if (key < root.getKey()) {
 			return 1 + distanceFrom(root.getLeft(), key);
 		} else if (key > root.getKey()) {

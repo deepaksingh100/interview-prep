@@ -16,7 +16,8 @@ public class Distance {
 
 		// distance(key1, key2) = distance(lca, key1) + distance(lca, key2)
 		Node lca = getLCA(root, key1, key2);
-		return distanceFrom(lca, key1, 0) + distanceFrom(lca, key2, 0);
+		int key1Distance = distanceFrom(lca, key1, 0);
+		return key1Distance == -1 ? -1 : key1Distance + distanceFrom(lca, key2, 0);
 	}
 
 	public static int distanceFrom(Node root, int key, int distance) {
