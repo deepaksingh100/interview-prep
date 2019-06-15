@@ -2,6 +2,8 @@ package me.deepak.interview.leetcode;
 
 /*
  * https://leetcode.com/problems/sort-colors/
+ * https://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/
+ * http://users.monash.edu/~lloyd/tildeAlgDS/Sort/Flag/
 */
 public class SortColors {
 
