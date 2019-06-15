@@ -1,23 +1,23 @@
 package me.deepak.interview.bits;
 
 /*
- * https://www.geeksforgeeks.org/find-the-two-repeating-elements-in-a-given-array/
- * https://stackoverflow.com/questions/22952651/explain-using-xor-to-find-two-non-duplicate-integers-in-an-array/22953668#22953668
+ * https://www.geeksforgeeks.org/find-two-missing-numbers-set-2-xor-based-solution/
 */
-public class TwoNumbersWithEvenOccurrencesInUnsortedArray {
+public class TwoMissingNumber {
 
-	private TwoNumbersWithEvenOccurrencesInUnsortedArray() {
+	private TwoMissingNumber() {
 	}
 
 	/*
-	 * Prints two numbers that occur even number of times. From 1 to n numbers are
-	 * present arr[]
+	 * Function to find two missing numbers in range [1, n]. This function assumes
+	 * that size of array is n-2 and all array elements are distinct. From 1 to n
+	 * numbers are present arr[]
 	 */
-	public static int[] getEvenOccurrences(int[] arr, int n) {
+	public static int[] findTwoMissingNumbers(int[] arr, int n) {
 
 		int length = arr.length;
 
-		// will hold XOR of two odd occurring elements
+		// will hold xor of two odd occurring elements
 		int xor = 0;
 
 		/*
@@ -39,7 +39,7 @@ public class TwoNumbersWithEvenOccurrencesInUnsortedArray {
 		 */
 		int rightMostSetBitNumber = xor & -xor;
 
-		// two even occurring elements
+		// two missing elements
 		int x = 0;
 		int y = 0;
 
