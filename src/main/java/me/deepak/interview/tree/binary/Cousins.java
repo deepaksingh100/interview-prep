@@ -53,6 +53,17 @@ public class Cousins {
 				}
 			}
 		}
+		if (found) {
+			return extractCousins(queue);
+		}
+		return cousins;
+	}
+
+	private static List<Integer> extractCousins(Queue<Node> queue) {
+		List<Integer> cousins = new ArrayList<>();
+		for (Node node : queue) {
+			cousins.add(node.getKey());
+		}
 		return cousins;
 	}
 
