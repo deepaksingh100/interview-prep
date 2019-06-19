@@ -1,7 +1,6 @@
 package me.deepak.interview.stack;
 
 import java.util.ArrayDeque;
-import java.util.Arrays;
 import java.util.Deque;
 
 /*
@@ -13,7 +12,6 @@ public class DailyTemperatures {
 	public int[] dailyTemperatures(int[] nums) {
 		int length = nums.length;
 		int[] result = new int[length];
-		Arrays.fill(result, 0);
 
 		// decreasing stack
 		Deque<Integer> stack = new ArrayDeque<>();
