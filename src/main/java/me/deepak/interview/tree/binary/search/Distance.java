@@ -1,5 +1,7 @@
 package me.deepak.interview.tree.binary.search;
 
+import static me.deepak.interview.tree.binary.search.LowestCommonAncestor.findLCA;
+
 import me.deepak.interview.tree.binary.beans.Node;
 
 /*
@@ -13,22 +15,33 @@ public class Distance {
 	public static int minDistance(Node root, int key1, int key2) {
 
 		// distance(key1, key2) = distance(lca, key1) + distance(lca, key2)
-		Node lca = LowestCommonAncestor.getLCA(root, key1, key2);
-		return distanceFrom(lca, key1) + distanceFrom(lca, key2);
+		Node lca = findLCA(root, key1, key2);
+		if (lca == null) {
+			return -1;
+		}
+		return distanceFrom(lca, key1, 0) + distanceFrom(lca, key2, 0);
 	}
 
-	private static int distanceFrom(Node root, int key) {
+	private static int distanceFrom(Node root, int key, int distance) {
+
+		// key is not found
 		if (root == null) {
 			return -1;
 		}
-		if (key < root.getKey()) {
-			int leftDistance = distanceFrom(root.getLeft(), key);
-			return leftDistance == -1 ? -1 : 1 + leftDistance;
-		} else if (key > root.getKey()) {
-			int rightDistance = distanceFrom(root.getRight(), key);
-			return rightDistance == -1 ? -1 : 1 + rightDistance;
+
+		// if key is found, return distance
+		if (key == root.getKey()) {
+			return distance;
 		}
-		return 0;
+
+		// if key < root's key, go left
+		if (key < root.getKey()) {
+			return distanceFrom(root.getLeft(), key, distance + 1);
+		}
+
+		// if key > root's key, go right
+		return distanceFrom(root.getRight(), key, distance + 1);
+
 	}
 
 }
