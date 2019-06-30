@@ -52,10 +52,10 @@ public class UniquePaths2 {
 		paths[0] = 1;
 		for (int[] row : grid) {
 			for (int j = 0; j < col; j++) {
-				if (row[j] == 0) {
-					paths[j] += paths[j - 1];
-				} else {
+				if (row[j] == 1) {
 					paths[j] = 0;
+				} else if (j > 0) {
+					paths[j] += paths[j - 1];
 				}
 			}
 		}
