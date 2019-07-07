@@ -14,9 +14,9 @@ public class SearchInMatrix {
 		int cols = matrix[0].length;
 		while (low <= high) {
 			int mid = (low + high) >>> 1;
-			if (Math.max(matrix[mid][0], matrix[mid][cols - 1]) < key) {
+			if (matrix[mid][cols - 1] < key) {
 				low = mid + 1;
-			} else if (Math.min(matrix[mid][0], matrix[mid][cols - 1]) > key) {
+			} else if (matrix[mid][0] > key) {
 				high = mid - 1;
 			} else {
 				int returnVal = binarySearch(matrix[mid], key);
