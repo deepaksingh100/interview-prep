@@ -16,7 +16,6 @@ public class LowestCommonAncestor {
 	 * before calling findLCA(). If key1 or key2 does not exist in given tree,
 	 * return null. Else call findLCA().
 	 */
-
 	public static Node findLCA(Node root, int key1, int key2) {
 
 		// base case

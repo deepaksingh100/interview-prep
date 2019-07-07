@@ -88,8 +88,8 @@ public class LowestCommonAncestor {
 		}
 
 		// look for keys in left and right subtrees
-		Node left = findLCA(root.getLeft(), key1, key2);
-		Node right = findLCA(root.getRight(), key1, key2);
+		Node left = findLCA2(root.getLeft(), key1, key2, booleans);
+		Node right = findLCA2(root.getRight(), key1, key2, booleans);
 
 		/*
 		 * if both of the above calls return non-null, then one key is present in one
