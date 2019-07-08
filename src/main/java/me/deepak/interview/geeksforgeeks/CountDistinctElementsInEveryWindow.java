@@ -17,10 +17,9 @@ public class CountDistinctElementsInEveryWindow {
 		int j = 0;
 
 		for (int i = 0; i < k; i++) {
-			Integer val = map.get(a[i]);
-			if (val == null) {
+			Integer val = map.getOrDefault(a[i], 0);
+			if (val == 0) {
 				count++;
-				val = 0;
 			}
 			map.put(a[i], ++val);
 		}
@@ -34,10 +33,9 @@ public class CountDistinctElementsInEveryWindow {
 					count--;
 				}
 				map.put(a[i - k], --oldVal);
-				Integer newVal = map.get(a[i]);
-				if (newVal == null || newVal == 0) {
+				Integer newVal = map.getOrDefault(a[i], 0);
+				if (newVal == 0) {
 					count++;
-					newVal = 0;
 				}
 				map.put(a[i], ++newVal);
 			}
