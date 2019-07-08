@@ -15,7 +15,7 @@ public class Knapsack {
 	/**
 	 * Returns maximum value from given values, weights & capacity
 	 */
-	public static double knapsackFractional(float[] values, int[] weights, int capacity) {
+	public static double knapsackFractional(double[] values, int[] weights, int capacity) {
 		int length = values.length;
 		Item[] items = new Item[length];
 		for (int i = 0; i < length; i++) {
@@ -49,7 +49,7 @@ public class Knapsack {
 	 * Returns items in sequence which yields maximum value from given values,
 	 * weights & capacity
 	 */
-	public static List<Item> knapsackFractionalSolution(float[] values, int[] weights, int capacity) {
+	public static List<Item> knapsackFractionalSolution(double[] values, int[] weights, int capacity) {
 		int length = values.length;
 		Item[] items = new Item[length];
 		for (int i = 0; i < length; i++) {
@@ -57,7 +57,7 @@ public class Knapsack {
 		}
 
 		// sort items in non-ascending order of cost
-		Arrays.sort(items, (item1, item2) -> Float.compare(item2.costPerUnit, item1.costPerUnit));
+		Arrays.sort(items, (item1, item2) -> Double.compare(item2.costPerUnit, item1.costPerUnit));
 
 		// Holds optimal sequence, which gains optimal solution
 		List<Item> sequence = new ArrayList<>();
@@ -86,13 +86,13 @@ public class Knapsack {
 
 	static final class Item {
 		int id;
-		float value;
+		double value;
 		int weight;
 
 		// per unit cost
-		float costPerUnit;
+		double costPerUnit;
 
-		private Item(int id, float value, int weight) {
+		private Item(int id, double value, int weight) {
 			this.id = id;
 			this.value = value;
 			this.weight = weight;
