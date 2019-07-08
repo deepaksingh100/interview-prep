@@ -22,7 +22,6 @@ public class EditDistance {
 					/*
 					 * If last characters of two strings are same, nothing much to do. Ignore last
 					 * characters and get count for remaining strings.
-					 * 
 					 */
 					table[i][j] = table[i - 1][j - 1];
 				} else {
@@ -30,7 +29,6 @@ public class EditDistance {
 					/*
 					 * If the last character is different, consider all possibilities and find the
 					 * minimum
-					 * 
 					 */
 					table[i][j] = 1 + Math.min(table[i][j - 1], // Insert
 							Math.min(table[i - 1][j], // Remove
