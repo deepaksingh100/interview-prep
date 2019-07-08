@@ -21,14 +21,12 @@ public class DeleteOperationForTwoStrings {
 					/*
 					 * If last characters of two strings are same, nothing much to do. Ignore last
 					 * characters and get count for remaining strings.
-					 * 
 					 */
 					table[i][j] = table[i - 1][j - 1];
 				} else {
 
 					/*
 					 * If the last character is different, either delete from word1 or word2
-					 * 
 					 */
 					table[i][j] = 1 + Math.min(table[i - 1][j], table[i][j - 1]);
 				}
