@@ -29,9 +29,9 @@ public class AlternatePositiveNegativeInArray {
 		int j = 1;
 		while (pCount > 0 && nCount > 0) {
 
-			if ((isEven(i) && a[i] >= 0) || (!isEven(i) && a[i] < 0)) {
+			// valid case
+			if ((isEven(i) && a[i] < 0) || (!isEven(i) && a[i] >= 0)) {
 
-				// valid case
 				if (a[i] >= 0) {
 					pCount--;
 				} else {
@@ -39,9 +39,8 @@ public class AlternatePositiveNegativeInArray {
 				}
 				i++;
 				j = i + 1;
-			} else if (((isEven(i) && a[i] < 0) || (!isEven(i) && a[i] >= 0)) && j < n) {
+			} else if (((isEven(i) && a[i] >= 0) || (!isEven(i) && a[i] < 0)) && j < n) /* invalid case */ {
 
-				// invalid case
 				swap(a, i, j);
 				j++;
 			}
@@ -56,9 +55,9 @@ public class AlternatePositiveNegativeInArray {
 
 		// shift all negative values to the end
 		while (i < j) {
-			while (arr[i++] >= 0)
+			while (arr[++i] >= 0)
 				;
-			while (arr[j--] < 0)
+			while (arr[--j] < 0)
 				;
 			if (i < j) {
 				swap(arr, i, j);
@@ -71,9 +70,7 @@ public class AlternatePositiveNegativeInArray {
 		}
 
 		// start with first positive element at index 0
-
-		// Rearrange array in alternating positive &
-		// negative items
+		// Rearrange array in alternating positive & negative items
 		int k = 0;
 
 		while (k < n && i < n) {
