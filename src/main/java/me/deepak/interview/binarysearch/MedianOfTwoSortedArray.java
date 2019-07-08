@@ -1,6 +1,6 @@
 package me.deepak.interview.binarysearch;
 
-import static me.deepak.interview.bits.Even.isEven;;
+import static me.deepak.interview.bits.Even.isEven;
 
 /*
  * https://algorithms.tutorialhorizon.com/find-median-of-two-sorted-arrays-of-same-size/
