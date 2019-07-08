@@ -1,4 +1,4 @@
-package me.deepak.interview.geeksforgeeks;
+package me.deepak.interview.dynamic_programming;
 
 import java.util.Arrays;
 
