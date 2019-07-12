@@ -56,10 +56,10 @@ public class BinaryTreeFromInOrderAndLevelOrder {
 	private static int[] extractSubtree(int[] levelOrder, int start, int end, Map<Integer, Integer> map) {
 
 		// length of given subtree
-		int levelLength = end - start + 1;
+		int subtreeLength = end - start + 1;
 
 		// holds values in given subtree
-		int[] level = new int[levelLength];
+		int[] subtree = new int[subtreeLength];
 
 		int count = 0;
 
@@ -67,15 +67,15 @@ public class BinaryTreeFromInOrderAndLevelOrder {
 		for (int i = 0; i < levelOrder.length; i++) {
 			int index = map.get(levelOrder[i]);
 			if (index >= start && index <= end) {
-				level[count++] = levelOrder[i];
+				subtree[count++] = levelOrder[i];
 			}
 
 			// if all values are populates to level[], break
-			if (count == levelLength) {
+			if (count == subtreeLength) {
 				break;
 			}
 		}
-		return level;
+		return subtree;
 	}
 
 }
