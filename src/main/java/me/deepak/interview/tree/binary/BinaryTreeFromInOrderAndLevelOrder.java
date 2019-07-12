@@ -41,19 +41,19 @@ public class BinaryTreeFromInOrderAndLevelOrder {
 		int index = map.get(rootValue);
 
 		// extract root's left subtree from level order traversal
-		int[] leftLevel = extractLevel(levelOrder, inStart, index - 1, map);
+		int[] leftSubtree = extractSubtree(levelOrder, inStart, index - 1, map);
 
 		// extract root's right subtree from level order traversal
-		int[] rightLevel = extractLevel(levelOrder, index + 1, inEnd, map);
+		int[] rightSubtree = extractSubtree(levelOrder, index + 1, inEnd, map);
 
 		// build tree recursively
-		root.setLeft(buildTreeFromInOrderAndLevelOrder(inOrder, leftLevel, inStart, index - 1, map));
-		root.setRight(buildTreeFromInOrderAndLevelOrder(inOrder, rightLevel, index + 1, inEnd, map));
+		root.setLeft(buildTreeFromInOrderAndLevelOrder(inOrder, leftSubtree, inStart, index - 1, map));
+		root.setRight(buildTreeFromInOrderAndLevelOrder(inOrder, rightSubtree, index + 1, inEnd, map));
 		return root;
 	}
 
 	// extracts values from given level order from start to end (both inclusive)
-	private static int[] extractLevel(int[] levelOrder, int start, int end, Map<Integer, Integer> map) {
+	private static int[] extractSubtree(int[] levelOrder, int start, int end, Map<Integer, Integer> map) {
 
 		// length of given subtree
 		int levelLength = end - start + 1;
