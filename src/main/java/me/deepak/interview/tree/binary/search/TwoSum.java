@@ -1,12 +1,13 @@
 package me.deepak.interview.tree.binary.search;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 import me.deepak.interview.tree.binary.beans.Node;
 
 /*
  * https://www.geeksforgeeks.org/find-a-pair-with-given-sum-in-bst/
+ * http://edusagar.com/articles/view/76/find-if-sum-of-two-nodes-is-equal-to-a-given-number-in-bst
 */
 public class TwoSum {
 
@@ -14,28 +15,47 @@ public class TwoSum {
 	}
 
 	public static boolean findPair(Node root, int target) {
-		List<Integer> list = new ArrayList<>();
-		inOrder(root, list);
-		int low = 0;
-		int high = list.size() - 1;
-		while (low < high) {
-			if (list.get(low) + list.get(high) < target) {
-				low++;
-			} else if (list.get(low) + list.get(high) > target) {
-				high--;
+
+		Deque<Node> inOrderStack = new ArrayDeque<>();
+		Deque<Node> reverseInOrderStack = new ArrayDeque<>();
+		Node inOrderCurr = root;
+		Node reverseInOrderCurr = root;
+
+		while (!inOrderStack.isEmpty() || !reverseInOrderStack.isEmpty() || inOrderCurr != null
+				|| reverseInOrderCurr != null) {
+			if (inOrderCurr != null || reverseInOrderCurr != null) {
+				if (inOrderCurr != null) {
+					inOrderStack.push(inOrderCurr);
+					inOrderCurr = inOrderCurr.getLeft();
+				}
+
+				if (reverseInOrderCurr != null) {
+					reverseInOrderStack.push(reverseInOrderCurr);
+					reverseInOrderCurr = reverseInOrderCurr.getRight();
+				}
 			} else {
-				return true;
+				Node inOrderNode = inOrderStack.peek();
+				Node reverseInOrderNode = reverseInOrderStack.peek();
+
+				if (inOrderNode == reverseInOrderNode) {
+					return false;
+				}
+
+				int sum = inOrderNode.getKey() + reverseInOrderNode.getKey();
+
+				if (sum < target) {
+					inOrderCurr = inOrderStack.pop();
+					inOrderCurr = inOrderCurr.getRight();
+				} else if (sum > target) {
+					reverseInOrderCurr = reverseInOrderStack.pop();
+					reverseInOrderCurr = reverseInOrderCurr.getLeft();
+				} else {
+					return true;
+				}
 			}
 		}
-		return false;
-	}
 
-	private static void inOrder(Node root, List<Integer> list) {
-		if (root != null) {
-			inOrder(root.getLeft(), list);
-			list.add(root.getKey());
-			inOrder(root.getRight(), list);
-		}
+		return false;
 	}
 
 }
