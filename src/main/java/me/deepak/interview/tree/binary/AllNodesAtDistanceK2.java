@@ -18,9 +18,10 @@ public class AllNodesAtDistanceK2 {
 	}
 
 	/*
-	 * Prints all nodes at distance k from a given target node. The k distant nodes
-	 * may be upward or downward. This function Returns distance of root from target
-	 * node, it returns -1 if target node is not present in tree rooted with root.
+	 * Returns list of all nodes at distance k from a given target node. The k
+	 * distant nodes may be upward or downward. This function Returns distance of
+	 * root from target node, it returns -1 if target node is not present in tree
+	 * rooted with root.
 	 */
 	private int distanceK(Node root, Node target, int k, List<Integer> result) {
 
