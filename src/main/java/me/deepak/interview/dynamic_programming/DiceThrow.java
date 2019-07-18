@@ -16,7 +16,7 @@ public class DiceThrow {
 
 	private static long countWays(int dice, int face, int sum, long[][] lookup) {
 
-		// if desired sum is reached with dice dices
+		// if desired sum is reached with given number of dices
 		if (dice == 0) {
 			return (sum == 0) ? 1 : 0;
 		}
