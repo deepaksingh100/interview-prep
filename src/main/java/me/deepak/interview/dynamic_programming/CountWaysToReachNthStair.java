@@ -18,14 +18,15 @@ public class CountWaysToReachNthStair {
 	 */
 	public static int count(int n, int m) {
 
-		int[] table = new int[n];
+		int[] table = new int[n + 1];
 		table[0] = 1;
-		for (int i = 1; i < n; i++) {
+		table[1] = 1;
+		for (int i = 2; i < n; i++) {
 			for (int j = 1; j <= m && j <= i; j++) {
 				table[i] += table[i - j];
 			}
 		}
-		return table[n - 1];
+		return table[n];
 	}
 
 }
