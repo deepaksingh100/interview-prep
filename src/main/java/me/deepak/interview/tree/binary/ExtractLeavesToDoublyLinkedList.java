@@ -12,10 +12,16 @@ public class ExtractLeavesToDoublyLinkedList {
 	private ExtractLeavesToDoublyLinkedList() {
 	}
 
+	public static Node extractLeavesToDLL(Node root) {
+		extract(root);
+		return head;
+
+	}
+
 	private static Node head;
 	private static Node prev;
 
-	public static Node extract(Node root) {
+	private static Node extract(Node root) {
 
 		if (root == null) {
 			return null;
