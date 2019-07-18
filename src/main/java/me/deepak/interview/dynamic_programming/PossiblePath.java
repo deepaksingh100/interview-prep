@@ -25,8 +25,6 @@ public class PossiblePath {
 				while (i < row) {
 					grid[i++][0] = -1;
 				}
-			} else {
-				grid[i][0] = 0;
 			}
 		}
 
@@ -35,8 +33,6 @@ public class PossiblePath {
 				while (i < col) {
 					grid[0][i++] = -1;
 				}
-			} else {
-				grid[0][i] = 0;
 			}
 		}
 
