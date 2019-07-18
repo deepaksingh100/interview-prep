@@ -13,8 +13,8 @@ public class Ancestors {
 	}
 
 	/*
-	 * If target is present in tree, then prints the ancestors and returns true,
-	 * otherwise returns false.
+	 * If target is present in tree, then returns list of ancestors and returns
+	 * true, otherwise returns false.
 	 */
 	public static boolean ancestors(Node root, int key, List<Integer> ancestors) {
 
