@@ -20,8 +20,7 @@ public class CountWaysToReachNthStair {
 
 		int[] table = new int[n];
 		table[0] = 1;
-		table[1] = 1;
-		for (int i = 2; i < n; i++) {
+		for (int i = 1; i < n; i++) {
 			for (int j = 1; j <= m && j <= i; j++) {
 				table[i] += table[i - j];
 			}
