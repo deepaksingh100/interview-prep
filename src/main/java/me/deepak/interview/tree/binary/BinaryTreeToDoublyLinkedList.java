@@ -10,10 +10,15 @@ public class BinaryTreeToDoublyLinkedList {
 	private BinaryTreeToDoublyLinkedList() {
 	}
 
+	public static Node convertBTToDLL(Node root) {
+		convert(root);
+		return head;
+	}
+
 	private static Node head;
 	private static Node prev;
 
-	public static void convert(Node root) {
+	private static void convert(Node root) {
 
 		if (root == null) {
 			return;
