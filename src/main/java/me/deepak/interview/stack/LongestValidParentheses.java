@@ -22,7 +22,6 @@ public class LongestValidParentheses {
 	 * keep on calculating the lengths of the valid substrings, and return the
 	 * length of the longest valid string at the end.
 	 */
-
 	public int longestValidParentheses(String s) {
 
 		// max length
