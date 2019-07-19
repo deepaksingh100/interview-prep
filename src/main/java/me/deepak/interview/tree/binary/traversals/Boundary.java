@@ -1,5 +1,7 @@
 package me.deepak.interview.tree.binary.traversals;
 
+import static me.deepak.interview.tree.binary.Leaf.isLeaf;
+
 import me.deepak.interview.tree.binary.beans.Node;
 
 /*
@@ -11,47 +13,47 @@ public class Boundary {
 	}
 
 	// A function to do boundary traversal of a given binary tree
-	public static void printBoundary(Node node) {
-		if (node != null) {
-			System.out.print(node.getKey() + " ");
+	public static void printBoundary(Node root) {
+		if (root != null) {
+			System.out.print(root.getKey() + " ");
 
 			// Print the getLeft() boundary in top-down manner.
-			printBoundaryLeft(node.getLeft());
+			printLeftBoundary(root.getLeft());
 
 			// Print all leaf nodes
-			printLeaves(node.getLeft());
-			printLeaves(node.getRight());
+			printLeaves(root.getLeft());
+			printLeaves(root.getRight());
 
 			// Print the getRight() boundary in bottom-up manner
-			printBoundaryRight(node.getRight());
+			printRightBoundary(root.getRight());
 		}
 	}
 
-	private static void printLeaves(Node node) {
-		if (node != null) {
-			printLeaves(node.getLeft());
+	private static void printLeaves(Node root) {
+		if (root != null) {
+			printLeaves(root.getLeft());
 
 			// Print it if it is a leaf node
-			if (node.getLeft() == null && node.getRight() == null) {
-				System.out.print(node.getKey() + " ");
+			if (isLeaf(root)) {
+				System.out.print(root.getKey() + " ");
 			}
-			printLeaves(node.getRight());
+			printLeaves(root.getRight());
 		}
 	}
 
 	// A function to print all getLeft() boundary nodes, except a leaf node.
 	// Print the nodes in TOP DOWN manner
-	private static void printBoundaryLeft(Node node) {
-		if (node != null) {
-			if (node.getLeft() != null) {
+	private static void printLeftBoundary(Node root) {
+		if (root != null) {
+			if (root.getLeft() != null) {
 
 				// to ensure top down order, print the node
 				// before calling itself for getLeft() subtree
-				System.out.print(node.getKey() + " ");
-				printBoundaryLeft(node.getLeft());
-			} else if (node.getRight() != null) {
-				System.out.print(node.getKey() + " ");
-				printBoundaryLeft(node.getRight());
+				System.out.print(root.getKey() + " ");
+				printLeftBoundary(root.getLeft());
+			} else if (root.getRight() != null) {
+				System.out.print(root.getKey() + " ");
+				printLeftBoundary(root.getRight());
 			}
 
 			// do nothing if it is a leaf node, this way we avoid
@@ -61,17 +63,17 @@ public class Boundary {
 
 	// A function to print all getRight() boundary nodes, except a leaf node
 	// Print the nodes in BOTTOM UP manner
-	private static void printBoundaryRight(Node node) {
-		if (node != null) {
-			if (node.getRight() != null) {
+	private static void printRightBoundary(Node root) {
+		if (root != null) {
+			if (root.getRight() != null) {
 
 				// to ensure bottom up order, first call for getRight()
 				// subtree, then print this node
-				printBoundaryRight(node.getRight());
-				System.out.print(node.getKey() + " ");
-			} else if (node.getLeft() != null) {
-				printBoundaryRight(node.getLeft());
-				System.out.print(node.getKey() + " ");
+				printRightBoundary(root.getRight());
+				System.out.print(root.getKey() + " ");
+			} else if (root.getLeft() != null) {
+				printRightBoundary(root.getLeft());
+				System.out.print(root.getKey() + " ");
 			}
 			// do nothing if it is a leaf node, this way we avoid
 			// duplicates in output
