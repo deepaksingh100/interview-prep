@@ -13,6 +13,25 @@ public class WiggleSort2 {
 
 	public void wiggleSort(int[] a) {
 
+		Arrays.sort(a);
+		int n = a.length;
+		int left = (n - 1) / 2;
+		int right = n - 1;
+		int[] temp = new int[n];
+
+		for (int i = 0; i < n; i++) {
+			if ((i & 1) == 0) {
+				temp[i] = a[left--];
+			} else {
+				temp[i] = a[right--];
+			}
+		}
+
+		System.arraycopy(temp, 0, a, 0, n);
+	}
+
+	public void wiggleSort2(int[] a) {
+
 		if (a == null || a.length <= 1) {
 			return;
 		}
@@ -54,7 +73,7 @@ public class WiggleSort2 {
 
 	private int getMedian(int[] a) {
 		int n = a.length;
-		PriorityQueue<int[]> minHeap = new PriorityQueue<>(n / 2,
+		PriorityQueue<int[]> minHeap = new PriorityQueue<>(n / 2 + 1,
 				(int[] o1, int[] o2) -> Integer.compare(o1[1], o2[1]));
 		for (int i = 0; i < n; i++) {
 			minHeap.add(new int[] { i, a[i] });
