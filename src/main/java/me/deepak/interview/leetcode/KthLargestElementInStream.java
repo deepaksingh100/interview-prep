@@ -14,7 +14,7 @@ public class KthLargestElementInStream {
 
 	public KthLargestElementInStream(int k, int[] nums) {
 		this.k = k;
-		minHeap = new PriorityQueue<>(k);
+		minHeap = new PriorityQueue<>(k + 1);
 
 		// add all elements of nums to min heap
 		for (int i : nums) {
