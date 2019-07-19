@@ -24,7 +24,7 @@ public class SortedListToBST {
 		Node root = new Node(node.getData());
 		root.setLeft(left);
 		node = node.getNext();
-		root.setRight(sortedListToBST(size / 2 - 1));
+		root.setRight(sortedListToBST(size - size / 2 - 1));
 		return root;
 	}
 
