@@ -3,6 +3,9 @@ package me.deepak.interview.stack;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+/*
+ * https://www.geeksforgeeks.org/the-stock-span-problem/
+*/
 public class StockSpanProblem {
 
 	private StockSpanProblem() {
