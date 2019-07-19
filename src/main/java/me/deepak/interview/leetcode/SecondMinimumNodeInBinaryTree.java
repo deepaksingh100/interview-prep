@@ -10,7 +10,7 @@ import me.deepak.interview.leetcode.beans.TreeNode;
 */
 public class SecondMinimumNodeInBinaryTree {
 
-	PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(Comparator.reverseOrder()) {
+	PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(3, Comparator.reverseOrder()) {
 
 		private static final long serialVersionUID = -4664523284979528321L;
 
