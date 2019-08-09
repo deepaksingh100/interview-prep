@@ -37,10 +37,7 @@ public class Diagonal {
 			return;
 		}
 
-		List<Integer> list = map.get(d);
-		if (list == null) {
-			list = new ArrayList<>();
-		}
+		List<Integer> list = map.getOrDefault(d, new ArrayList<>());
 		list.add(root.getKey());
 		map.put(d, list);
 
