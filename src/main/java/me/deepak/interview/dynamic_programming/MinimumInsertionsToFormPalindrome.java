@@ -16,7 +16,7 @@ public class MinimumInsertionsToFormPalindrome {
 	public static int minInsertions(char[] sequence) {
 		int length = sequence.length;
 
-		// table [i][j] will store lps of sequence[i...j]
+		// table [i][j] will store min insertion count of sequence[i...j]
 		int[][] table = new int[length][length];
 
 		/*
