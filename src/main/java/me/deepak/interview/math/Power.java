@@ -30,22 +30,16 @@ public class Power {
 
 		int result = 1;
 
-		if (y > 0) {
-			while (y > 0) {
-				if ((y & 1) == 1) {
+		while (y != 0) {
+			if ((y & 1) == 1) {
+				if (y > 0) {
 					result *= x;
-				}
-				y >>= 1;
-				x *= x;
-			}
-		} else if (y < 0) {
-			while (y < 0) {
-				if ((y & 1) == 1) {
+				} else {
 					result /= x;
 				}
-				y >>= 1;
-				x *= x;
 			}
+			y >>= 1;
+			x *= x;
 		}
 
 		return result;
