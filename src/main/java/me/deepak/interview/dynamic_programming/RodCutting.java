@@ -21,11 +21,11 @@ public class RodCutting {
 		for (int i = 1; i <= rodLength; i++) {
 			int maxRevenue = Integer.MIN_VALUE;
 
-			// cutting rod of length i into j and i - j - 1 (0 -> n - 1)
-			for (int j = 0; j < i; j++) {
+			// cutting rod of length i into j and i - j
+			for (int j = 1; j <= i; j++) {
 
-				// cutRod(n) = for all i in {0, 1 .. n-1} max(price[i] + cutRod(n-i-1))
-				maxRevenue = Math.max(maxRevenue, prices[j] + revenues[i - j - 1]);
+				// cutRod(i) = for all j in {1 .. i} max(price[j - 1] + cutRod(i - j))
+				maxRevenue = Math.max(maxRevenue, prices[j - 1] + revenues[i - j]);
 			}
 			revenues[i] = maxRevenue;
 		}
@@ -42,21 +42,21 @@ public class RodCutting {
 		for (int i = 1; i <= rodLength; i++) {
 			int maxRevenue = Integer.MIN_VALUE;
 
-			// cutting rod of length i into j and i - j - 1 (0 -> n - 1)
-			for (int j = 0; j < i; j++) {
+			// cutting rod of length i into j and i - j
+			for (int j = 1; j <= i; j++) {
 
-				// cutRod(n) = for all i in {0, 1 .. n-1} max(price[i] + cutRod(n-i-1))
-				if (maxRevenue < prices[j] + revenues[i - j - 1]) {
-					maxRevenue = prices[j] + revenues[i - j - 1];
+				// cutRod(i) = for all j in {1 .. i} max(price[j - 1] + cutRod(i - j))
+				if (maxRevenue < prices[j - 1] + revenues[i - j]) {
+					maxRevenue = prices[j - 1] + revenues[i - j];
 
 					// hold the optimal size j of the first piece to cut off when solving a
 					// subproblem of size i
-					solution[i] = j;
+					solution[i] = j - 1;
 				}
 			}
 			revenues[i] = maxRevenue;
 		}
-		
+
 		List<Integer> cutRod = new ArrayList<>();
 		while (rodLength > 0) {
 
