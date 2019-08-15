@@ -32,7 +32,7 @@ public class BinaryTreeZigzagLevelOrderTraversal {
 				while (size-- > 0) {
 					root = deque.remove();
 					levelTraversal.add(root.val);
-					
+
 					if (root.left != null) {
 						deque.add(root.left);
 					}

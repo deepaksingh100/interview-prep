@@ -62,10 +62,10 @@ public class LongestIncreasingSubsequence {
 		int lisLength = Arrays.stream(lisLengths).max().getAsInt();
 
 		int[] lis = new int[lisLength];
-		
+
 		// loop on lisLengths
 		for (int i = length - 1; i >= 0; i--) {
-			
+
 			// if current lisLength == lisLengths[i], add it to lis
 			if (lisLengths[i] == lisLength) {
 				lis[--lisLength] = arr[i];

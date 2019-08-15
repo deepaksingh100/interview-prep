@@ -83,11 +83,11 @@ public class LongestCommonSubstring {
 		for (int i = 0; i <= length1; i++) {
 			for (int j = 0; j <= length2; j++) {
 				if (i == 0 || j == 0) {
-					
+
 					// If any of the string is empty, answer is 0
 					table[i][j] = 0;
 				} else if (sequence1[i - 1] == sequence2[j - 1]) {
-					
+
 					/*
 					 * If sequence1[i - 1] == sequence2[j - 1], we add 1 to the answer and move 1
 					 * index backward in both string. Select max(previous_max, table[i][j])
@@ -102,13 +102,13 @@ public class LongestCommonSubstring {
 			}
 		}
 		char[] lcs = new char[result];
-		
+
 		/*
 		 * traverse up diagonally from the (row, column) cell until table[row][col] != 0
 		 */
 		while (table[row][column] != 0) {
 			lcs[--result] = sequence1[row - 1]; // or sequence2[column - 1]
-			
+
 			// move diagonally up to previous cell
 			row--;
 			column--;
@@ -135,11 +135,11 @@ public class LongestCommonSubstring {
 			currentRow = i & 1; // odd even style
 			for (int j = 0; j <= length2; j++) {
 				if (i == 0 || j == 0) {
-					
+
 					// if any of the string is empty, answer is 0
 					table[currentRow][j] = 0;
 				} else if (sequence1[i - 1] == sequence2[j - 1]) {
-					
+
 					/*
 					 * If sequence1[i - 1] == sequence2[j - 1], we add 1 to the answer and move 1
 					 * index backward in both string. Select max(previous_max, table[i][j]) and
@@ -151,7 +151,7 @@ public class LongestCommonSubstring {
 						end = i;
 					}
 				} else {
-					
+
 					// This code block is very important (must) if we are reusing rows (In Space
 					// Optimized Solution)
 					table[currentRow][j] = 0;

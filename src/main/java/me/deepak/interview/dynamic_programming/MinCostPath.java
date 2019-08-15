@@ -38,7 +38,7 @@ public class MinCostPath {
 	}
 
 	public static int[] getMinCostPath(int[][] costs, int m, int n) {
-		
+
 		// totalCosts[i][j] represents the total cost to traverse from costs[0][0] to
 		// costs[i][j]
 		int[][] totalCosts = new int[m + 1][n + 1];
@@ -63,7 +63,7 @@ public class MinCostPath {
 				) + costs[i][j];
 			}
 		}
-		
+
 		int minCostPathLength = totalCosts[m][n];
 		int[] minCostPath = new int[minCostPathLength];
 		minCostPath[--minCostPathLength] = costs[m][n];

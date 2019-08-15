@@ -17,7 +17,7 @@ public class NextGreaterElement2 {
 
 		// decreasing stack
 		Deque<Integer> stack = new ArrayDeque<>();
-		
+
 		for (int i = 0; i < 2 * length - 1; i++) {
 			int j = i % length;
 

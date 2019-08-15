@@ -11,7 +11,7 @@ public class CountWays {
 	public static int count(int n) {
 
 		int[] fibonaccis = new int[n + 1];
-		
+
 		// 0th and 1st number of the series are 0 and 1
 		fibonaccis[0] = 1;
 		fibonaccis[1] = 1;

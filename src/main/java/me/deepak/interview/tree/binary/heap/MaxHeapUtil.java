@@ -96,7 +96,7 @@ public final class MaxHeapUtil {
 		int heapSize = maxHeap.getSize();
 		heapSize++;
 		maxHeap.setSize(heapSize);
-		
+
 		// set Integer.MIN_VALUE at last index
 		maxHeap.getHeap().set(heapSize - 1, Integer.MIN_VALUE);
 
