@@ -30,9 +30,6 @@ public class InOrder {
 	 * https://youtu.be/nzmtCFNae9k
 	 */
 	public static void inOrderIterative(Node root) {
-		if (root == null) {
-			return;
-		}
 		Deque<Node> stack = new ArrayDeque<>();
 		while (root != null || !stack.isEmpty()) {
 
