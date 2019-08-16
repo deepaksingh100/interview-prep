@@ -13,27 +13,24 @@ public class CountBSTSubtreeInRange {
 	private static int count = 0;
 
 	public static Integer getCount(Node root, int low, int high) {
-		count(root, low, high);
+		isInRange(root, low, high);
 		return count;
 	}
 
 	// A recursive function to get count of nodes whose subtree is in range from low
 	// to high. This function returns true if nodes in subtree rooted under 'root'
 	// are in range.
-	private static boolean count(Node root, int low, int high) {
+	private static boolean isInRange(Node root, int low, int high) {
 
 		// base case
 		if (root == null) {
 			return true;
 		}
 
-		// recur for left and right subtrees
-		boolean l = count(root.getLeft(), low, high);
-		boolean r = count(root.getRight(), low, high);
-
 		// if both left and right subtrees are in range and current Node is also in
 		// range, then increment count and return true
-		if (l && r && low <= root.getKey() && root.getKey() <= high) {
+		if (isInRange(root.getLeft(), low, high) && isInRange(root.getRight(), low, high) && low <= root.getKey()
+				&& root.getKey() <= high) {
 			count++;
 			return true;
 		}
