@@ -50,10 +50,7 @@ public class VerticalOrder {
 			maxLevel = Math.max(maxLevel, level);
 
 			// nodes at level
-			List<Integer> nodeValues = map.get(level);
-			if (nodeValues == null) {
-				nodeValues = new ArrayList<>();
-			}
+			List<Integer> nodeValues = map.getOrDefault(level, new ArrayList<>());
 
 			// add current node's value to list & put it to the map
 			nodeValues.add(root.getKey());
