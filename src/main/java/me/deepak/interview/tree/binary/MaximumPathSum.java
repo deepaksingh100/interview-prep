@@ -1,13 +1,17 @@
 package me.deepak.interview.tree.binary;
 
-import me.deepak.interview.leetcode.beans.TreeNode;
-
 /*
  * https://leetcode.com/problems/binary-tree-maximum-path-sum/
  * https://www.geeksforgeeks.org/find-maximum-path-sum-in-a-binary-tree/
  * https://leetcode.com/problems/binary-tree-maximum-path-sum/discuss/39775/Accepted-short-solution-in-Java
 */
 public class MaximumPathSum {
+
+	private class TreeNode {
+		int val;
+		TreeNode left;
+		TreeNode right;
+	}
 
 	private int maxSum = Integer.MIN_VALUE;
 

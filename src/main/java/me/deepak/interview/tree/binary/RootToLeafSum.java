@@ -3,10 +3,15 @@ package me.deepak.interview.tree.binary;
 import java.util.ArrayList;
 import java.util.List;
 
-import me.deepak.interview.leetcode.beans.TreeNode;
 import me.deepak.interview.tree.binary.beans.Node;
 
 public class RootToLeafSum {
+
+	private class TreeNode {
+		int val;
+		TreeNode left;
+		TreeNode right;
+	}
 
 	private RootToLeafSum() {
 	}
