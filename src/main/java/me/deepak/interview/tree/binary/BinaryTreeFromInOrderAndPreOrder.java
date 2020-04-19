@@ -6,6 +6,7 @@ import java.util.Map;
 import me.deepak.interview.tree.binary.beans.Node;
 
 /*
+ * https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
  * https://www.programcreek.com/2014/06/leetcode-construct-binary-tree-from-preorder-and-inorder-traversal-java/
 */
 public class BinaryTreeFromInOrderAndPreOrder {
@@ -48,8 +49,8 @@ public class BinaryTreeFromInOrderAndPreOrder {
 		 * 
 		 * For left subtree, inStart will not change, inEnd will now be index - 1 (as we
 		 * need to visit only the left subtree), preStart will increase by 1 to examine
-		 * next root element, preEnd will be preStart + length of left subtree [preStart
-		 * + 1 ... preEnd], according to inOrder length of left subtree will be index -
+		 * next root element, preEnd will be preStart + 1 + length of left subtree [preStart
+		 * + 1 ... preEnd] - 1, according to inOrder length of left subtree will be index -
 		 * inStart, thus preEnd will now be preStart + index - inStart.
 		 * 
 		 * For right subtree , inStart will now be index + 1 (as we need to visit only
