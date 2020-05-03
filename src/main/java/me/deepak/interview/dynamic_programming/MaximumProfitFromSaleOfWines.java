@@ -15,7 +15,7 @@ public class MaximumProfitFromSaleOfWines {
 		int[][] memo = new int[n + 1][n + 1];
 		Arrays.fill(memo, -1);
 
-		return maxProfitDP(price, 0, n - 1, memo);
+		return maxProfitMemoized(price, 0, n - 1, memo);
 	}
 
 	private int maxProfitRecursive(int[] price, int start, int end) {
@@ -31,7 +31,7 @@ public class MaximumProfitFromSaleOfWines {
 				year * price[end] + maxProfitRecursive(price, start, end - 1));
 	}
 
-	private int maxProfitDP(int[] price, int start, int end, int[][] memo) {
+	private int maxProfitMemoized(int[] price, int start, int end, int[][] memo) {
 
 		if (start > end) {
 			return 0;
@@ -47,8 +47,8 @@ public class MaximumProfitFromSaleOfWines {
 		int year = price.length - (end - start);
 
 		// If not calculated so far
-		return memo[start][end] = Math.max(year * price[start] + maxProfitDP(price, start, end - 1, memo),
-				year * price[end] + maxProfitDP(price, start + 1, end, memo));
+		return memo[start][end] = Math.max(year * price[start] + maxProfitMemoized(price, start + 1, end, memo),
+				year * price[end] + maxProfitMemoized(price, start, end - 1, memo));
 	}
 
 }

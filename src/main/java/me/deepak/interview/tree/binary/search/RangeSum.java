@@ -19,6 +19,10 @@ public class RangeSum {
 
 		if (root != null) {
 
+			if (l <= root.getKey() && r >= root.getKey()) {
+				sum += root.getKey();
+			}
+			
 			if (l < root.getKey()) {
 				dfs(root.getLeft(), l, r);
 			}
@@ -26,11 +30,6 @@ public class RangeSum {
 			if (r > root.getKey()) {
 				dfs(root.getRight(), l, r);
 			}
-
-			if (l <= root.getKey() && r >= root.getKey()) {
-				sum += root.getKey();
-			}
-
 		}
 
 	}

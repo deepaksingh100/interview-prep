@@ -19,7 +19,7 @@ public class KthSmallestElementInBST {
 				root = root.getLeft();
 			}
 			root = stack.pop();
-			if (k-- == 0) {
+			if (--k == 0) {
 				return root.getKey();
 			}
 			root = root.getRight();

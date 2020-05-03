@@ -14,7 +14,7 @@ public class CloneWithRandomPointers {
 		Node right;
 		Node random;
 
-		public Node(int data) {
+		Node(int data) {
 			this.data = data;
 		}
 	}

@@ -37,7 +37,7 @@ public class BalancedTree {
 		return Math.abs(leftHeight - rightHeight) <= 1 && isLeftBalanced && isRightBalanced;
 	}
 
-	class Height {
+	private static class Height {
 		int h = 0;
 	}
 

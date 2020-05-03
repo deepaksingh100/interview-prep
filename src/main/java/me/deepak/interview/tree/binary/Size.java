@@ -21,7 +21,7 @@ public class Size {
 	}
 
 	/*
-	 * https://www.geeksforgeeks.org/iterative-method-to-find-height-of-binary-tree/
+	 * https://www.geeksforgeeks.org/write-program-calculate-size-tree-iterative/
 	 */
 	public static int getSizeIterative(Node root) {
 		if (root == null) {

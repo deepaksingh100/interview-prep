@@ -1,5 +1,8 @@
 package me.deepak.interview.design_patterns.creational.singleton;
 
+/*
+ * http://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html
+*/
 public class DoubleCheckLockingSingleton {
 
 	private static DoubleCheckLockingSingleton instance;
@@ -7,6 +10,7 @@ public class DoubleCheckLockingSingleton {
 	private DoubleCheckLockingSingleton() {
 	}
 
+	// broken, should use synchronized at method level
 	public static DoubleCheckLockingSingleton getInstance() {
 		if (instance == null) {
 			synchronized (DoubleCheckLockingSingleton.class) {

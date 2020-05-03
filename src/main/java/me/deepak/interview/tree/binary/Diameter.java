@@ -6,6 +6,7 @@ import me.deepak.interview.tree.binary.beans.Node;
 
 /*
  * https://www.geeksforgeeks.org/diameter-of-a-binary-tree/
+ * https://www.geeksforgeeks.org/diameter-of-a-binary-tree-in-on-a-new-method/
  */
 public class Diameter {
 
@@ -37,7 +38,7 @@ public class Diameter {
 		return Math.max(leftHeight + rightHeight + 1, Math.max(leftDiameter, rightDiameter));
 	}
 
-	class Height {
+	private static class Height {
 		int h = 0;
 	}
 

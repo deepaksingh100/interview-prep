@@ -1,6 +1,6 @@
 package me.deepak.interview.tree.binary;
 
-import static me.deepak.interview.tree.binary.LowestCommonAncestor.*;
+import static me.deepak.interview.tree.binary.LowestCommonAncestor.findLCA2;
 
 import me.deepak.interview.tree.binary.beans.Node;
 

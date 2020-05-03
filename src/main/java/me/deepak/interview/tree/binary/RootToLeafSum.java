@@ -7,7 +7,7 @@ import me.deepak.interview.tree.binary.beans.Node;
 
 public class RootToLeafSum {
 
-	private class TreeNode {
+	private static class TreeNode {
 		int val;
 		TreeNode left;
 		TreeNode right;

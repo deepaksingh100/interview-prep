@@ -9,6 +9,7 @@ public class LongestIncreasingSubsequence {
 
 	/*
 	 * https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/
+	 * https://www.youtube.com/watch?v=fV-TF4OvZpk
 	 */
 	public static int lisLength(int[] arr) {
 		int length = arr.length;

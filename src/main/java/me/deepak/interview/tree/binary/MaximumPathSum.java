@@ -7,7 +7,7 @@ package me.deepak.interview.tree.binary;
 */
 public class MaximumPathSum {
 
-	private class TreeNode {
+	private static class TreeNode {
 		int val;
 		TreeNode left;
 		TreeNode right;
