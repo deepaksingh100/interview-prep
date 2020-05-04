@@ -2,7 +2,7 @@ package me.deepak.interview.dynamic_programming;
 
 /*
  * https://www.geeksforgeeks.org/check-possible-path-2d-matrix/
- * this question was asked in OYO SDE 1 interview
+ * Asked in Oyo SDE-1 08-06-2019
 */
 public class PossiblePath {
 

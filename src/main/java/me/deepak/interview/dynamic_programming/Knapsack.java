@@ -10,6 +10,7 @@ public class Knapsack {
 
 	/*
 	 * https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/
+	 * https://youtu.be/xCbYmUPvc2Q
 	 */
 	public static int knapsack01(int[] values, int[] weights, int capacity) {
 		int length = values.length;

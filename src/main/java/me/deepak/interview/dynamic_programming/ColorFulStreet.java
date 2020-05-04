@@ -3,6 +3,7 @@ package me.deepak.interview.dynamic_programming;
 /*
  * https://www.hackerearth.com/practice/algorithms/dynamic-programming/introduction-to-dynamic-programming-1/practice-problems/algorithm/the-colorful-street-1/
  * https://www.quora.com/How-do-I-solve-the-colorful-street-problem-using-top-down-dynamic-programming
+ * https://www.programcreek.com/2014/05/leetcode-paint-house-java/
 */
 public class ColorFulStreet {
 

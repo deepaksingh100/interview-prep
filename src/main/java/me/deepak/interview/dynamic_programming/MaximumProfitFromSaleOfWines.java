@@ -44,11 +44,12 @@ public class MaximumProfitFromSaleOfWines {
 
 		// (end - start + 1) is the number of unsold wines, year would be number of sold
 		// wines + 1
-		int year = price.length - (end - start);
+		int year = price.length - (end - start + 1) + 1;
 
 		// If not calculated so far
-		return memo[start][end] = Math.max(year * price[start] + maxProfitMemoized(price, start + 1, end, memo),
+		memo[start][end] = Math.max(year * price[start] + maxProfitMemoized(price, start + 1, end, memo),
 				year * price[end] + maxProfitMemoized(price, start, end - 1, memo));
+		return memo[start][end];
 	}
 
 }
