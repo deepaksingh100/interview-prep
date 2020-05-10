@@ -18,8 +18,8 @@ public class PrintEvenOdd {
 
 class EvenOddTask implements Runnable {
 
-	private int max;
 	private Printer printer;
+	private int max;
 	private boolean even;
 
 	EvenOddTask(Printer printer, int max, boolean even) {
