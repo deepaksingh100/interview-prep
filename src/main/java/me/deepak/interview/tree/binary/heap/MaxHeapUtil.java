@@ -66,7 +66,7 @@ public final class MaxHeapUtil {
 		int max = heap.get(0);
 
 		// replace heap[0] by heap[size - 1], decrement size by 1
-		heap.set(0, heap.get(--heapSize));
+		heap.set(0, heap.remove(--heapSize));
 		maxHeap.setSize(heapSize);
 
 		// call maxheapify on shorter heap
