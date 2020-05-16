@@ -1,8 +1,8 @@
 package me.deepak.interview.sort;
 
 import static me.deepak.interview.sort.utils.SwapUtil.swap;
-import static me.deepak.interview.tree.binary.heap.MaxHeapUtil.buildMaxHeap;
-import static me.deepak.interview.tree.binary.heap.MaxHeapUtil.maxHeapify;
+import static me.deepak.interview.tree.binary.heap.MaxHeap.buildMaxHeap;
+import static me.deepak.interview.tree.binary.heap.MaxHeap.maxHeapify;
 
 import java.util.List;
 

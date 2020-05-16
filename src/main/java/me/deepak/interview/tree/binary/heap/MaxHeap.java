@@ -6,9 +6,9 @@ import java.util.List;
 
 import me.deepak.interview.tree.binary.beans.Heap;
 
-public final class MaxHeapUtil {
+public final class MaxHeap {
 
-	private MaxHeapUtil() {
+	private MaxHeap() {
 	}
 
 	public static Heap buildMaxHeap(List<Integer> list) {
@@ -24,36 +24,40 @@ public final class MaxHeapUtil {
 		return maxHeap;
 	}
 
-	public static void maxHeapify(Heap maxHeap, int root) {
-		int left = left(root);
-		int right = right(root);
+	public static void maxHeapify(Heap maxHeap, int rootIndex) {
+		int leftChildIndex = left(rootIndex);
+		int rightChildIndex = right(rootIndex);
 
 		// let current largest value is at root
-		int largest = root;
+		int largestIndex = rootIndex;
 
 		List<Integer> heap = maxHeap.getHeap();
 		int heapSize = maxHeap.getSize();
 
-		if (left < heapSize && heap.get(left) > heap.get(largest)) {
+		if (leftChildIndex < heapSize && heap.get(leftChildIndex) > heap.get(largestIndex)) {
 
 			// new largest found
-			largest = left;
+			largestIndex = leftChildIndex;
 		}
-		if (right < heapSize && heap.get(right) > heap.get(largest)) {
+		if (rightChildIndex < heapSize && heap.get(rightChildIndex) > heap.get(largestIndex)) {
 
 			// new largest found
-			largest = right;
+			largestIndex = rightChildIndex;
 		}
 
 		// if root has not the largest value, swap largest & root, call maxheapify on
 		// largest
-		if (largest != root) {
-			swap(heap, largest, root);
-			maxHeapify(maxHeap, largest);
+		if (largestIndex != rootIndex) {
+			swap(heap, largestIndex, rootIndex);
+			maxHeapify(maxHeap, largestIndex);
 		}
 	}
 
 	public static int heapMaximum(Heap maxHeap) {
+		int heapSize = maxHeap.getSize();
+		if (heapSize < 1) {
+			throw new IllegalArgumentException("Heapsize is zero");
+		}
 		return maxHeap.getHeap().get(0);
 	}
 
