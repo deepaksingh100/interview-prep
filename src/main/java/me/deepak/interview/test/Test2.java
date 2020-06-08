@@ -1,3 +1,4 @@
+package me.deepak.interview.test;
 
 class A1 {
 	static {
